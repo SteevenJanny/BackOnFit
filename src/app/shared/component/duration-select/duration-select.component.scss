@@ -1,0 +1,60 @@
+
+ion-card-header {
+  text-align: center;
+  padding-bottom: 0;
+
+  ion-card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--ion-color-primary);
+  }
+
+  ion-card-subtitle {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+    font-weight: normal;
+  }
+}
+
+/* Quick select section */
+.quick-select {
+  text-align: center;
+  margin-top: 1rem;
+
+  .label {
+    display: block;
+    color: #555;
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .quick-options {
+    display: flex;
+    justify-content: center;
+    gap: 0.1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+
+    ion-chip {
+      --color: var(--ion-color-light);
+      --border-color: var(--ion-color-primary);
+      font-weight: 500;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      --background: var(--ion-color-primary);
+
+
+      &:hover {
+        filter: brightness(1.05);
+      }
+    }
+  }
+}
+
+
+.chip-outline {
+  --background: transparent;
+  --color: var(--ion-color-dark) !important;
+}

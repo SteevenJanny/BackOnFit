@@ -1,0 +1,208 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import '@ionic/angular/css/palettes/dark.class.css';
+
+html {
+  --ion-safe-area-top: 25px;
+}
+
+
+.teal-to-cyan {
+  --background: linear-gradient(to right, var(--ion-color-primary), var(--ion-color-secondary));
+  --color: var(--ion-color-primary-contrast);
+}
+
+
+:root {
+
+  --ion-safe-area-bottom: 20px;
+
+  --blue : rgb(68, 125, 247);
+  --green : rgb(91, 198, 95);
+  --yellow : rgb(237, 194, 39);
+  --purple : rgb(143, 43, 245);
+
+  --ion-card-background: #ffffff;
+  --ion-background-color: rgb(240, 254, 253);
+  --ion-text-color: #2f2f2f;
+
+
+  --ion-color-primary: #0d9388;
+  --ion-color-primary-rgb: 13, 147, 136;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 0, 0, 0;
+  --ion-color-primary-shade: #0b8178;
+  --ion-color-primary-tint: #d5faf1;
+
+  --ion-color-secondary: #0891b2;
+  --ion-color-secondary-rgb: 8, 145, 178;
+  --ion-color-secondary-contrast: #000000;
+  --ion-color-secondary-contrast-rgb: 0, 0, 0;
+  --ion-color-secondary-shade: #07809d;
+  --ion-color-secondary-tint: #9cefff;
+
+  --ion-color-tertiary: #2a2b2a;
+  --ion-color-tertiary-rgb: 42, 43, 42;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #252625;
+  --ion-color-tertiary-tint: #abacab;
+
+  --ion-color-success: #f8f3e3;
+  --ion-color-success-rgb: 248, 243, 227;
+  --ion-color-success-contrast: #000000;
+  --ion-color-success-contrast-rgb: 0, 0, 0;
+  --ion-color-success-shade: #dad6c8;
+  --ion-color-success-tint: #f9f4e6;
+
+  --ion-color-danger: #e5446d;
+  --ion-color-danger-rgb: 229, 68, 109;
+  --ion-color-danger-contrast: #000000;
+  --ion-color-danger-contrast-rgb: 0, 0, 0;
+  --ion-color-danger-shade: #ca3c60;
+  --ion-color-danger-tint: #e8577c;
+
+  --ion-color-warning: #b98b82;
+  --ion-color-warning-rgb: 185, 139, 130;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0, 0, 0;
+  --ion-color-warning-shade: #a37a72;
+  --ion-color-warning-tint: #f4d1ca;
+
+  --ion-color-light: #f6f8fc;
+  --ion-color-light-rgb: 246, 248, 252;
+  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast-rgb: 0, 0, 0;
+  --ion-color-light-shade: #d8dade;
+  --ion-color-light-tint: #f7f9fc;
+
+  --ion-color-medium: #5f5f5f;
+  --ion-color-medium-rgb: 95, 95, 95;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: #545454;
+  --ion-color-medium-tint: #6f6f6f;
+
+  --ion-color-dark: #2f2f2f;
+  --ion-color-dark-rgb: 47, 47, 47;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255, 255, 255;
+  --ion-color-dark-shade: #292929;
+  --ion-color-dark-tint: #444444;
+
+}
+
+
+.ion-palette-dark,
+.ion-palette-dark.ios,
+.ion-palette-dark.md {
+  /* Backgrounds */
+
+  --blue : rgb(25, 74, 174);
+  --green : rgb(41, 136, 46);
+  --yellow : rgb(181, 145, 25);
+  --purple : rgb(100, 20, 174);
+
+  --ion-background-color: #141a29;
+  --ion-text-color: #e8f6f4;
+
+  --ion-card-background: #202938;
+  --ion-background-color-rgb: 32, 41, 56;
+
+  /* Your palette remapped for dark UI */
+  --ion-color-primary: #33766f;
+  --ion-color-primary-rgb: 13, 147, 136;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-shade: #0b8178;
+  --ion-color-primary-tint: #5ed8d0;
+
+  --ion-color-secondary: #327392;
+  --ion-color-secondary-rgb: 8, 145, 178;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-shade: #07809d;
+  --ion-color-secondary-tint: #12a9d2;
+
+  --ion-color-tertiary: #99a7bd;
+  --ion-color-tertiary-rgb: 42, 43, 42;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-shade: #242524;
+  --ion-color-tertiary-tint: #3d3e3d;
+
+  --ion-color-success: #3b857b;
+  --ion-color-danger: #e5446d;
+
+  --ion-color-warning: #e6b4aa;
+  --ion-color-warning-rgb: 185, 139, 130;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-tint: #a37a72;
+  --ion-color-warning-shade: #f4d1ca;
+
+  --ion-color-light: #1a1c1c;
+  --ion-color-medium: #7d8a88;
+  --ion-color-dark: #f2f7f7;
+
+  /* Ensure gradients still contrast well */
+  .teal-to-cyan {
+    --background: linear-gradient(
+        to right,
+        var(--ion-color-primary),
+        var(--ion-color-secondary)
+    );
+    --color: var(--ion-color-primary-contrast);
+  }
+}
+
+
+.plain-button {
+  --border-radius: 10px;
+  height: 50px;
+  font-weight: normal;
+  --background: linear-gradient(to right, var(--ion-color-primary), var(--ion-color-secondary));
+}
+
+ion-button {
+  text-transform: none;
+}
+
+.my-card {
+  margin-inline: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid #e3e3e3;
+  overflow: visible;
+  contain: layout;
+}

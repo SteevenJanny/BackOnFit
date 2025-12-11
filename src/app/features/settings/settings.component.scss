@@ -1,0 +1,113 @@
+ion-card {
+  ion-icon {
+    border-radius: 25%;
+    padding: 5px;
+    font-size: 1.5rem;
+  }
+
+  ion-icon.primary {
+    background: var(--ion-color-primary-tint);
+    color: var(--ion-color-primary);
+  }
+
+  ion-icon.secondary {
+    background: var(--ion-color-secondary-tint);
+    color: var(--ion-color-secondary);
+  }
+
+  ion-icon.tertiary {
+    background: var(--ion-color-tertiary-tint);
+    color: var(--ion-color-tertiary);
+  }
+
+  ion-icon.success {
+    background: var(--ion-color-success-tint);
+    color: var(--ion-color-success);
+  }
+
+  ion-icon.warning {
+    background: var(--ion-color-warning-tint);
+    color: var(--ion-color-warning);
+  }
+
+  ion-icon.danger {
+    background: var(--ion-color-danger-tint);
+    color: var(--ion-color-danger);
+  }
+
+  ion-card-subtitle {
+    font-weight: normal;
+  }
+
+  ion-card-title {
+    font-size: 1rem;
+  }
+
+  ion-card-header {
+    display: block;
+    padding: 0;
+    margin: 0;
+    // border-bottom: 1px solid var(--ion-color-light);
+  }
+
+  ion-card-content {
+    color: var(--ion-text-color);
+  }
+}
+
+
+// ------------------------------
+
+.language-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lang-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 14px;
+  cursor: pointer;
+  background: none;
+  border: 2px solid transparent;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  text-align: left;
+}
+
+.lang-btn:hover {
+  background: #f7faf9;
+}
+
+.lang-btn.selected {
+  background: var(--ion-color-primary-tint);
+  border-color: var(--ion-color-primary);
+  color: var(--ion-color-primary-shade);
+}
+
+.lang-title {
+  color: var(--ion-text-color);
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+
+.lang-subtitle {
+  font-size: 0.75rem;
+  opacity: 0.65;
+  color: var(--ion-text-color);
+}
+
+.selected-indicator {
+  width: 8px;
+  height: 8px;
+  background: #2e8c77;
+  border-radius: 50%;
+  display: none;
+}
+
+.lang-btn.selected .selected-indicator {
+  display: inline-block;
+}

@@ -1,0 +1,140 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar class="teal-to-cyan" style="padding-bottom: 50px">
+    <ion-buttons slot="start">
+      <ion-button (click)="close()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ "sessionEdit.title" | t }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+  <p class="session-id-muted">
+    {{ session.id }}
+  </p>
+
+  <div class="title">
+    <ion-card-title>{{ "sessionEdit.sessionName" | t }}</ion-card-title>
+    <ion-card-subtitle>
+      <div class="warning" [hidden]="!!session.name">
+        {{ "sessionEdit.sessionNameRequired" | t }}
+      </div>
+    </ion-card-subtitle>
+  </div>
+  <ion-item lines="full" class="input-item">
+    <ion-icon slot="start" name="document-text-outline" color="primary"></ion-icon>
+    <ion-input
+      [(ngModel)]="session.name"
+      name="sessionName"
+      [required]="true"
+      [placeholder]="'sessionEdit.namePlaceholder' | t "
+    ></ion-input>
+  </ion-item>
+
+  <div class="title">
+    <ion-card-title>{{ "sessionEdit.repeatHeader" | t }}</ion-card-title>
+    <ion-card-subtitle>{{ "sessionEdit.repeatMessage" | t }}</ion-card-subtitle>
+  </div>
+  <ion-card class="my-card session-card">
+    <app-scheduler
+      [onConfirm]="null"
+      [onChange]="updateSchedule.bind(this)"
+      [defaultDuration]="session.defaultScheduleTime"
+    ></app-scheduler>
+  </ion-card>
+
+  <div class="title">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="ion-align-content-center">
+          <ion-card-title>{{ "sessionEdit.activities" | t }}</ion-card-title>
+        </ion-col>
+        <ion-col class="ion-justify-content-end ion-text-right" (click)="addActivity()">
+          <ion-button fill="clear" size="small" color="primary">
+            <ion-icon slot="start" name="add"></ion-icon>
+            {{ "sessionEdit.addActivity" | t }}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  @if (session.activities.length > 0) {
+    <ion-reorder-group [disabled]="false" (ionItemReorder)="reorderActivities($event)">
+      @for (activity of session.activities; track activity) {
+
+
+        <ion-card class="my-card activity-card">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="1" class="ion-align-content-center">
+                <ion-reorder></ion-reorder>
+              </ion-col>
+              <ion-col size="9">
+                <ion-card-header>
+                  <ion-card-title>
+                    <ion-icon
+                      [name]="activity.type === 'step' ? 'walk-outline' : 'time-outline'"
+                      [color]="activity.type === 'step' ? 'secondary' : 'tertiary'">
+                    </ion-icon>
+                    {{ activity.name || ("activityEdit.namePlaceholder" | t) }}
+                  </ion-card-title>
+                  <ion-card-subtitle> {{ activity.description }}</ion-card-subtitle>
+                </ion-card-header>
+                <ion-card-content>
+                  <div class="activity-details">
+                    @if (activity.config.iterations) {
+                      <ion-chip class="iter">
+                        <ion-icon name="repeat-outline"></ion-icon>
+                        {{ activity.config.iterations }}x
+                      </ion-chip>
+                    }
+                    @if (activity.type === "time" && activity.config.effortTime) {
+                      <ion-chip class="effort">
+                        <ion-icon name="flash-outline"></ion-icon>
+                        {{ formatDuration(activity.config.effortTime) }}
+                      </ion-chip>
+                    }
+                    @if (activity.config.restTime && activity.config.restTime > 0) {
+                      <ion-chip class="rest">
+                        <ion-icon name="pause-outline"></ion-icon>
+                        {{ formatDuration(activity.config.restTime) }}
+                      </ion-chip>
+                    }
+                  </div>
+                </ion-card-content>
+              </ion-col>
+              <ion-col size="2" class="ion-text-center ion-align-content-center">
+                <ion-button fill="clear" color="medium" (click)="editActivity(activity)">
+                  <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+                </ion-button>
+                <ion-button fill="clear" color="danger" (click)="deleteActivity(activity)">
+                  <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+      }
+    </ion-reorder-group>
+  } @else {
+    <div class="empty-state ion-text-center ion-padding">
+      <ion-icon name="list-outline" size="large" color="medium"></ion-icon>
+      <p> {{ "sessionEdit.noSessions" | t }}</p>
+    </div>
+  }
+
+</ion-content>
+
+<ion-footer>
+  <ion-button
+    class="plain-button ion-margin-top ion-margin"
+    shape="round" fill="solid"
+    expand="full"
+    (click)="confirm()"
+  >
+    <ion-icon slot="start" name="save-outline"></ion-icon>
+    {{ "sessionEdit.saveSession" | t }}
+  </ion-button>
+</ion-footer>

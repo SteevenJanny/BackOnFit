@@ -1,0 +1,114 @@
+{
+  "common": {
+    "appTitle": "BackOnFit"
+  },
+  "home": {
+    "startActivity": "Schnell starten",
+    "mySessions": "Meine Sitzungen",
+    "viewSchedule": "Plan anzeigen",
+    "startSession": "Sitzung starten",
+    "createSession": "Neue Sitzung",
+    "activities": "Aktivitäten",
+    "deleteSessionTitle": "Sitzung löschen",
+    "deleteSessionMessage": "Möchten Sie diese Sitzung wirklich löschen?",
+    "cancel": "Abbrechen",
+    "delete": "Löschen"
+  },
+  "scanner": {
+    "title": "Sitzung importieren",
+    "instruction": "QR-Code scannen, um eine Sitzung zu importieren. Zum Erstellen eines QR-Codes auf die Teilen-Taste klicken",
+    "startScan": "Kamera öffnen",
+    "idConflictHeader": "ID-Konflikt",
+    "idConflictMessage": "Eine Sitzung mit dieser ID existiert bereits. Bestehende ersetzen oder neue ID verwenden?",
+    "cancel": "Abbrechen",
+    "keepBoth": "Beide behalten",
+    "replace": "Ersetzen"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "languageHeader": "Sprache",
+    "languageMessage": "Bevorzugte Sprache wählen",
+    "themeHeader": "Dunkelmodus",
+    "themeMessage": "Zwischen Hell und Dunkel wechseln",
+    "activityHeader": "Aktivitätsoptionen",
+    "activityMessage": "Verhalten während Aktivitäten einstellen",
+    "vibrateRest": "Vibrieren in Pausen",
+    "soundRest": "Ton in Pausen",
+    "vibrateEffort": "Vibrieren bei Anstrengung",
+    "soundEffort": "Ton bei Anstrengung",
+    "about": "Über",
+    "version": "Version",
+    "debug": "Debug-Modus"
+  },
+  "activityEdit": {
+    "edit": "Aktivität bearbeiten",
+    "quickActivity": "Schnellaktivität",
+    "stepBased": "Schrittbasiert",
+    "timeBased": "Zeitbasiert",
+    "iterHeader": "Wiederholungen",
+    "iterMessage": "Anzahl der Wiederholungen",
+    "effortTime": "Anstrengungszeit",
+    "effortTimeDesc": "Dauer der Anstrengung",
+    "restTime": "Pausenzeit",
+    "restTimeDesc": "Dauer der Pause",
+    "startActivity": "Starten",
+    "saveActivity": "Speichern",
+    "namePlaceholder": "Unbenannte Aktivität",
+    "descriptionPlaceholder": "Keine Beschreibung"
+  },
+  "sessionEdit": {
+    "title": "Sitzung bearbeiten",
+    "sessionName": "Sitzungsname",
+    "sessionNameRequired": "Sitzungsname ist erforderlich",
+    "namePlaceholder": "z. B. Morgenroutine",
+    "repeatHeader": "Standard-Wiederholungsfrequenz",
+    "repeatMessage": "Lege die Standard-Wiederholungsfrequenz für diese Sitzung fest.",
+    "every": "Alle",
+    "unit": "Einheiten",
+    "activities": "Aktivitäten",
+    "noSessions": "Keine Aktivitäten hinzugefügt",
+    "addActivity": "Aktivität hinzufügen",
+    "saveSession": "Sitzung speichern",
+    "nameRequiredToast": "Bitte Sitzungsname eingeben",
+    "activitiesRequiredToast": "Mind. eine Aktivität hinzufügen"
+  },
+  "runActivity": {
+    "step": "Schritt",
+    "effort": "Anstrengung",
+    "rest": "Pause",
+    "ready": "Bereit machen",
+    "start": "Start",
+    "pause": "Pause",
+    "skipPhase": "Phase überspringen",
+    "activity": "Aktivität"
+  },
+  "completed": {
+    "congrats": "Gut gemacht!",
+    "activityCompleted": "Aktivität abgeschlossen",
+    "sessionCompleted": "Sitzung abgeschlossen",
+    "goHome": "Zur Startseite",
+    "repeat": "Wiederholen",
+    "startNext": "Nächste starten",
+    "nextActivity": "Nächste Aktivität",
+    "completedActivities": "Abgeschlossene Aktivitäten",
+    "scheduledSessions": "Nächste Sitzung planen"
+  },
+  "calendar": {
+    "title": "Geplante Sitzungen",
+    "empty": "Keine Sitzungen geplant",
+    "plan": "Sitzung planen",
+    "selectDate": "Datum wählen",
+    "schedule": "Planen",
+    "today": "Heute",
+    "tomorrow": "Morgen",
+    "notificationTitle": "Sitzung {{session}}",
+    "unnamedSession": "Unbenannt",
+    "notificationBody": "Zeit für Ihre geplante Sitzung!",
+    "notificationScheduled": "Sitzung geplant",
+    "notificationFailed": "Planung fehlgeschlagen"
+  },
+  "share": {
+    "share": "Sitzung teilen",
+    "instructions": "QR-Code scannen, um diese Sitzung zu importieren"
+  }
+}

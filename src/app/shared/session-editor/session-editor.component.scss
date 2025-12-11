@@ -1,0 +1,101 @@
+.session-id-muted {
+  color: var(--ion-color-medium);
+  font-size: 0.5rem;
+  margin-top: -0.5rem;
+  text-align: right;
+}
+ion-footer {
+  padding-bottom: var(--ion-safe-area-bottom);
+}
+
+
+.input-item {
+  --background: var(--ion-card-background);
+  --border-radius: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+
+.warning {
+  font-size: 0.8rem;
+  color: var(--ion-color-danger);
+}
+
+.session-card {
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px;
+}
+
+.title {
+  margin-top: 16px;
+
+  ion-card-title {
+    font-size: 1rem;
+  }
+
+  ion-card-subtitle {
+    font-size: 0.8rem;
+    font-weight: normal;
+  }
+}
+
+
+ion-fab-list {
+  ion-fab-button {
+    font-size: 2rem;
+    margin-top: 10px;
+    width: 60px;
+    height: 60px;
+    --border-radius: 25% !important;
+  }
+}
+
+.activity-card {
+  margin-inline: 10px;
+  ion-card-header {
+    padding-top: 0;
+
+  }
+
+  ion-card-title {
+    font-size: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    ion-icon {
+      margin-right: 8px;
+    }
+  }
+
+  ion-card-subtitle {
+    font-size: 0.8rem;
+    font-weight: normal;
+    margin-top: 0;
+  }
+}
+
+.activity-details {
+  display: flex;
+  flex-direction: row;
+
+  ion-chip {
+    font-size: 0.75rem;
+    padding: 0.5rem;
+    &.effort{
+      --background: var(--green);
+    }
+    &.rest{
+      --background: var(--blue);
+    }
+
+  }
+  ion-icon{
+    margin-right: 3px;
+    margin-left:0;
+  }
+}

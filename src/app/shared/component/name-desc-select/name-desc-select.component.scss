@@ -1,0 +1,16 @@
+
+ion-textarea.description {
+  color: #656565;
+  font-size: 0.9rem;
+}
+
+ion-item {
+  --background: var(--ion-card-background);
+}
+
+
+ion-card {
+  border-radius: 16px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  margin-bottom: 1.5rem;
+}

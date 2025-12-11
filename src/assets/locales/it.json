@@ -1,0 +1,114 @@
+{
+  "common": {
+    "appTitle": "BackOnFit"
+  },
+  "home": {
+    "startActivity": "Attività Rapida",
+    "mySessions": "Le Mie Sessioni",
+    "viewSchedule": "Vedi Calendario",
+    "startSession": "Avvia Sessione",
+    "createSession": "Crea Nuova Sessione",
+    "activities": "attività",
+    "deleteSessionTitle": "Elimina Sessione",
+    "deleteSessionMessage": "Sei sicuro di voler eliminare questa sessione?",
+    "cancel": "Annulla",
+    "delete": "Elimina"
+  },
+  "scanner": {
+    "title": "Importa Sessione",
+    "instruction": "Scansiona un QR code per importare una sessione. Per creare un QR code, premi il pulsante condividi",
+    "startScan": "Apri Fotocamera",
+    "idConflictHeader": "ID Sessione in Conflitto",
+    "idConflictMessage": "Esiste già una sessione con questo ID. Vuoi sostituirla o crearne una nuova con un ID diverso?",
+    "cancel": "Annulla",
+    "keepBoth": "Tieni Entrambe",
+    "replace": "Sostituisci"
+  },
+  "settings": {
+    "title": "Impostazioni",
+    "languageHeader": "Lingua",
+    "languageMessage": "Scegli la tua lingua preferita",
+    "themeHeader": "Modalità scura",
+    "themeMessage": "Passa tra tema chiaro e scuro",
+    "activityHeader": "Impostazioni attività",
+    "activityMessage": "Configura il comportamento durante le attività",
+    "vibrateRest": "Vibra nei periodi di riposo",
+    "soundRest": "Suono nei periodi di riposo",
+    "vibrateEffort": "Vibra nei periodi di sforzo",
+    "soundEffort": "Suono nei periodi di sforzo",
+    "about": "Informazioni",
+    "version": "Versione",
+    "debug": "Modalità debug"
+  },
+  "activityEdit": {
+    "edit": "Modifica Attività",
+    "quickActivity": "Attività Rapida",
+    "stepBased": "A passi",
+    "timeBased": "A tempo",
+    "iterHeader": "Iterazioni",
+    "iterMessage": "Numero di iterazioni per questa attività",
+    "effortTime": "Tempo di Sforzo",
+    "effortTimeDesc": "Durata del periodo di sforzo",
+    "restTime": "Tempo di Riposo",
+    "restTimeDesc": "Durata del periodo di riposo",
+    "startActivity": "Avvia Attività",
+    "saveActivity": "Salva Attività",
+    "namePlaceholder": "Attività senza nome",
+    "descriptionPlaceholder": "Nessuna descrizione"
+  },
+  "sessionEdit": {
+    "title": "Modifica Sessione",
+    "sessionName": "Nome Sessione",
+    "sessionNameRequired": "Il nome della sessione è obbligatorio",
+    "namePlaceholder": "es. Routine Mattina",
+    "repeatHeader": "Frequenza di Ripetizione Predefinita",
+    "repeatMessage": "Imposta la frequenza di ripetizione predefinita per questa sessione",
+    "every": "Ogni",
+    "unit": "Unità",
+    "activities": "Attività",
+    "noSessions": "Nessuna attività aggiunta",
+    "addActivity": "Aggiungi Attività",
+    "saveSession": "Salva Sessione",
+    "nameRequiredToast": "Fornisci un nome per la sessione",
+    "activitiesRequiredToast": "Aggiungi almeno un’attività alla sessione"
+  },
+  "runActivity": {
+    "step": "Passo",
+    "effort": "Sforzo",
+    "rest": "Riposo",
+    "ready": "Preparati",
+    "start": "Avvia",
+    "pause": "Pausa",
+    "skipPhase": "Salta Fase",
+    "activity": "Attività"
+  },
+  "completed": {
+    "congrats": "Ottimo lavoro!",
+    "activityCompleted": "Attività completata",
+    "sessionCompleted": "Sessione completata",
+    "goHome": "Vai alla Home",
+    "repeat": "Ripeti",
+    "startNext": "Avvia Prossima Attività",
+    "nextActivity": "Prossima Attività",
+    "completedActivities": "Attività Completate",
+    "scheduledSessions": "Pianifica Prossima Sessione"
+  },
+  "calendar": {
+    "title": "Sessioni Programmate",
+    "empty": "Nessuna sessione programmata",
+    "plan": "Programma Sessione",
+    "selectDate": "Seleziona Data",
+    "schedule": "Programma Sessione",
+    "today": "Oggi",
+    "tomorrow": "Domani",
+    "notificationTitle": "Sessione {{session}}",
+    "unnamedSession": "Senza nome",
+    "notificationBody": "È ora della tua sessione programmata!",
+    "notificationScheduled": "Sessione Programmata",
+    "notificationFailed": "Errore nella programmazione della sessione"
+  },
+  "share": {
+    "share": "Condividi Sessione",
+    "instructions": "Scansiona questo QR code per importare la sessione"
+  }
+}

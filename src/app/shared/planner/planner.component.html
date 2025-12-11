@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon slot="icon-only" size="large" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ "calendar.plan" | t }}</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class=" modal-content">
+    <ion-card class="my-card">
+      <ion-card-header>
+        <ion-card-title> {{ session.name }}</ion-card-title>
+        <ion-card-subtitle> {{ session.activities.length }} {{ "home.activities" | t }}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <div> {{ "calendar.selectDate" | t }}</div>
+<!--          [value]="initial"-->
+
+        <ion-datetime
+          #picker
+          max="2050-01-05T23:59:59Z"
+          [locale]="getLocale()"
+          (ionChange)="onChange($event)"
+          [firstDayOfWeek]="1"
+          [preferWheel]="true"
+          class="datetime-picker"
+        >
+        </ion-datetime>
+        <ion-button class="plain-button" shape="round" fill="solid" expand="full" (click)="confirm()">
+          <ion-icon slot="start" name="notifications-outline"></ion-icon>
+          {{ "calendar.schedule" | t }}
+        </ion-button>
+
+      </ion-card-content>
+    </ion-card>
+    <app-agenda
+      [session]="session"></app-agenda>
+  </div>
+</ion-content>

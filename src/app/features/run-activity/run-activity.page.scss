@@ -1,0 +1,181 @@
+ion-title {
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  position: relative;
+}
+
+ion-title .scrolling-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 10s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
+.color-control {
+
+  --ion-text-color: var(--ion-color-light);
+
+  &.effort {
+    --ion-background-color: var(--green);
+    --ion-toolbar-background: var(--green);
+  }
+
+  &.rest {
+    --ion-background-color: var(--blue);
+    --ion-toolbar-background: var(--blue);
+  }
+
+  &.ready {
+    --ion-background-color: var(--yellow);
+    --ion-toolbar-background: var(--yellow);
+  }
+}
+.main-grid {
+  margin: 0;
+  width: 100%;
+}
+
+
+.run-activity-page {
+
+  .session-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .activity-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .name-card {
+    max-width: 80%;
+    text-align: center;
+    border-radius: 1rem;
+    margin: 0;
+    background: var(--ion-color-light);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+    .activity-title {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--ion-color-medium);
+      margin: 0;
+    }
+
+    .activity-description {
+      white-space: pre-wrap;
+      overflow-y: auto;
+      max-height: 8rem;
+      padding-right: 4px;
+      line-height: 1.4;
+    }
+  }
+
+  .iteration-display {
+    margin-top: 1rem;
+    text-align: center;
+
+    .iteration-label {
+      font-size: 1rem;
+      color: var(--ion-text-color);
+    }
+
+    .iteration-count {
+      margin-top: 0.2rem;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+  }
+  .phase-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem auto auto;
+    gap: 0.5rem;
+    width: 80%;
+    max-width: 500px;
+    padding: 1rem 0;
+
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: clamp(1rem, 10vw, 2rem);
+
+  }
+  .timer-section {
+    width: 100%;
+    margin: 1rem auto auto;
+    max-width: 750px;
+    text-align: center;
+
+    .timer-display {
+
+      font-size: clamp(1rem, 15vw, 4rem);
+      font-weight: bold;
+      margin: 1rem 0;
+    }
+
+    ion-progress-bar {
+      height: 12px;
+      border-radius: 6px;
+      margin-top: 0.5rem;
+    }
+  }
+
+  .controls {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .primary-btn {
+    margin-top: 2rem;
+    height: 5rem;
+    font-size: 1.4rem;
+    --border-radius: 30px;
+    --background: var(--ion-color-light);
+    --color: var(--ion-color-dark);
+  }
+
+}
+
+ion-footer {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.toolbar-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background: var(--ion-background-color);
+  padding-bottom: 50px;
+
+  .footer-btn {
+    height: 50px;
+    --border-radius: 25px;
+    --background: var(--ion-color-light);
+    --color: var(--ion-color-dark);
+    &.rounded{
+      width: 50px;
+    }
+    &.long{
+      min-width: 200px;
+    }
+  }
+}

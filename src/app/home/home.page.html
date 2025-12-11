@@ -1,0 +1,114 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar class="teal-to-cyan">
+    <ion-buttons slot="end">
+      <ion-button (click)="openScanner()">
+        <ion-icon slot="icon-only" icon="scan"></ion-icon>
+      </ion-button>
+      <ion-button (click)="openSettings()">
+        <ion-icon slot="icon-only" icon="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="assets/logo.svg" alt="App Icon"
+           style="height:24px; vertical-align: middle; margin-right:8px;">
+      {{ "common.appTitle" | t }}
+    </ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar class="teal-to-cyan">
+    <ion-button class="activity-button" shape="round" fill="solid" expand="full" (click)="openActivityEditor()">
+      <ion-icon size="large" slot="start" name="play-outline"></ion-icon>
+      {{ "home.startActivity" | t }}
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-align-content-center ion-padding-start">
+        {{ "home.mySessions" | t }}
+      </ion-col>
+      <ion-col class="ion-align-content-center ion-text-end">
+        <ion-button fill="clear" (click)="openCalendar()">
+          <ion-icon slot="start" name="calendar-outline"></ion-icon>
+          {{ "home.viewSchedule" | t }}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  @if (sessions.length !== 0) {
+    @for (session of sessions; track session.id) {
+      <ion-card class=" my-card session-card ion-margin-top">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-card-header>
+                <ion-card-title>{{ session.name }}</ion-card-title>
+                <ion-card-subtitle> {{ session.activities.length }} {{ "home.activities" | t }}</ion-card-subtitle>
+              </ion-card-header>
+            </ion-col>
+            <ion-col class="ion-text-center button-line">
+              <ion-button fill="clear" color="primary" (click)="openShare(session)">
+                <ion-icon slot="icon-only" icon="share-social-outline"></ion-icon>
+              </ion-button>
+              <ion-button fill="clear" color="secondary" (click)="openPlanner(session)">
+                <ion-icon slot="icon-only" icon="time-outline"></ion-icon>
+              </ion-button>
+              <ion-button fill="clear" color="tertiary" (click)="openSessionEditor(session)">
+                <ion-icon slot="icon-only" icon="create-outline"></ion-icon>
+              </ion-button>
+              <ion-button fill="clear" color="danger" (click)="deleteSession(session)">
+                <ion-icon slot="icon-only" icon="trash-outline"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-card-content>
+          <ion-button class="plain-button" shape="round" fill="solid" expand="full" (click)="runSession(session)">
+            <ion-icon slot="start" name="play-outline"></ion-icon>
+            {{ "home.startSession" | t }}
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    }
+  }
+
+  <ion-button class="create-session-button ion-padding" shape="round" fill="outline" expand="full"
+              (click)="openSessionEditor(undefined)">
+    <ion-icon slot="start" name="add"></ion-icon>
+    {{ "home.createSession" | t }}
+  </ion-button>
+
+  <div style="height:30vh;"></div>
+</ion-content>
+
+<!--<ion-tabs #tabs (ionTabsDidChange)="tabChange(tabs)">-->
+<!--  <ion-tab-bar slot="bottom">-->
+
+<!--    <ion-tab-button tab="activities">-->
+<!--      <ion-icon name="fitness-outline"></ion-icon>-->
+<!--      <ion-label>{{ "home.activities" | t }}</ion-label>-->
+<!--    </ion-tab-button>-->
+
+<!--    <ion-tab-button tab="sessions">-->
+<!--      <ion-icon name="list-circle-outline"></ion-icon>-->
+<!--      <ion-label>{{ "home.sessions" | t }}</ion-label>-->
+<!--    </ion-tab-button>-->
+
+<!--    <ion-tab-button tab="calendar">-->
+<!--      <ion-icon name="calendar-outline"></ion-icon>-->
+<!--      <ion-label>{{ "home.agenda" | t }}</ion-label>-->
+<!--    </ion-tab-button>-->
+
+<!--    <ion-tab-button tab="settings">-->
+<!--      <ion-icon name="settings-outline"></ion-icon>-->
+<!--      <ion-label>{{ "home.settings" | t }}</ion-label>-->
+<!--    </ion-tab-button>-->
+
+<!--  </ion-tab-bar>-->
+<!--</ion-tabs>-->
+

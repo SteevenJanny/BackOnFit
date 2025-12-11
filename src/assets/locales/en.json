@@ -1,0 +1,114 @@
+{
+  "common": {
+    "appTitle": "BackOnFit"
+  },
+  "home": {
+    "startActivity": "Quick Activity",
+    "mySessions": "My Sessions",
+    "viewSchedule": "View Schedule",
+    "startSession": "Start Session",
+    "createSession": "Create New Session",
+    "activities": "activities",
+    "deleteSessionTitle": "Delete Session",
+    "deleteSessionMessage": "Are you sure you want to delete this session?",
+    "cancel": "Cancel",
+    "delete": "Delete"
+  },
+  "scanner": {
+    "title": "Import Session",
+    "instruction": "Scan a QR code to import a session. To create a QR code for a session, click on the share button",
+    "startScan": "Open Camera",
+    "idConflictHeader": "Session ID Conflict",
+    "idConflictMessage": "A session with this ID already exists. Do you want to replace the existing session or create a new one with a different ID?",
+    "cancel": "Cancel",
+    "keepBoth": "Keep Both",
+    "replace": "Replace"
+  },
+  "settings": {
+    "title": "Settings",
+    "languageHeader": "Language",
+    "languageMessage": "Choose your preferred language",
+    "themeHeader": "Dark mode",
+    "themeMessage": "Switch between light and dark theme",
+    "activityHeader": "Activities settings",
+    "activityMessage": "Configure behavior during activities",
+    "vibrateRest": "Vibrate on rest periods",
+    "soundRest": "Sound alert on rest periods",
+    "vibrateEffort": "Vibrate on effort periods",
+    "soundEffort": "Sound alert on effort periods",
+    "about": "About",
+    "version": "Version",
+    "debug": "Debug mode"
+  },
+  "activityEdit": {
+    "edit": "Edit Activity",
+    "quickActivity": "Quick Activity",
+    "stepBased": "Step-based",
+    "timeBased": "Time-based",
+    "iterHeader": "Iterations",
+    "iterMessage": "Number of iterations for this activity",
+    "effortTime": "Effort Time",
+    "effortTimeDesc": "Duration of effort period",
+    "restTime": "Rest Time",
+    "restTimeDesc": "Duration of rest period",
+    "startActivity": "Start Activity",
+    "saveActivity": "Save Activity",
+    "namePlaceholder": "Unnamed Activity",
+    "descriptionPlaceholder": "No description"
+  },
+  "sessionEdit": {
+    "title": "Edit Session",
+    "sessionName": "Session Name",
+    "sessionNameRequired": "Session name is required",
+    "namePlaceholder": "e.g. Morning Routine",
+    "repeatHeader": "Default Repeat Frequency",
+    "repeatMessage": "Set default repeat frequency for this session",
+    "every": "Every",
+    "unit": "Unités",
+    "activities": "Activities",
+    "noSessions": "No activities added",
+    "addActivity": "Add Activity",
+    "saveSession": "Save Session",
+    "nameRequiredToast": "Please provide a name for the session",
+    "activitiesRequiredToast": "Please add at least one activity to the session"
+  },
+  "runActivity": {
+    "step": "Step",
+    "effort": "Effort",
+    "rest": "Rest",
+    "ready": "Get Ready",
+    "start": "Start",
+    "pause": "Pause",
+    "skipPhase": "Skip Phase",
+    "activity": "Activity"
+  },
+  "completed": {
+    "congrats": "Great job !",
+    "activityCompleted": "Activity completed",
+    "sessionCompleted": "Session completed",
+    "goHome": "Go to Home",
+    "repeat": "Repeat",
+    "startNext": "Start Next Activity",
+    "nextActivity": "Next Activity",
+    "completedActivities": "Completed Activities",
+    "scheduledSessions": "Schedule Next Session"
+  },
+  "calendar": {
+    "title": "Scheduled Sessions",
+    "empty": "No sessions scheduled",
+    "plan": "Schedule Session",
+    "selectDate": "Select Date",
+    "schedule": "Schedule Session",
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "notificationTitle": "Session {{session}}",
+    "unnamedSession": "Unnamed",
+    "notificationBody": "It's time for your scheduled session!",
+    "notificationScheduled": "Session Scheduled",
+    "notificationFailed": "Failed to Schedule Notification"
+  },
+  "share": {
+    "share": "Share Session",
+    "instructions": "Scan this QR code to import this session"
+  }
+}

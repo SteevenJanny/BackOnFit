@@ -1,0 +1,114 @@
+{
+  "common": {
+    "appTitle": "BackOnFit"
+  },
+  "home": {
+    "startActivity": "Activité rapide",
+    "mySessions": "Mes séances",
+    "viewSchedule": "Voir planning",
+    "startSession": "Démarrer séance",
+    "createSession": "Créer nouvelle séance",
+    "activities": "activités",
+    "deleteSessionTitle": "Supprimer séance",
+    "deleteSessionMessage": "Voulez-vous vraiment supprimer cette séance ?",
+    "cancel": "Annuler",
+    "delete": "Supprimer"
+  },
+  "scanner": {
+    "title": "Importer séance",
+    "instruction": "Scannez un QR code pour importer une séance. Pour créer un QR code, cliquez sur le bouton de partage",
+    "startScan": "Ouvrir caméra",
+    "idConflictHeader": "Conflit d’ID",
+    "idConflictMessage": "Une séance avec cet ID existe déjà. Remplacer l’existante ou créer une nouvelle séance avec un ID différent ?",
+    "cancel": "Annuler",
+    "keepBoth": "Garder les deux",
+    "replace": "Remplacer"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "languageHeader": "Langue",
+    "languageMessage": "Choisissez la langue préférée",
+    "themeHeader": "Mode sombre",
+    "themeMessage": "Basculer entre thème clair et sombre",
+    "activityHeader": "Options activités",
+    "activityMessage": "Configurer le comportement en activité",
+    "vibrateRest": "Vibration en repos",
+    "soundRest": "Son en repos",
+    "vibrateEffort": "Vibration en effort",
+    "soundEffort": "Son en effort",
+    "about": "À propos",
+    "version": "Version",
+    "debug": "Mode debug"
+  },
+  "activityEdit": {
+    "edit": "Modifier activité",
+    "quickActivity": "Activité rapide",
+    "stepBased": "Par étapes",
+    "timeBased": "Par durée",
+    "iterHeader": "Itérations",
+    "iterMessage": "Nombre d’itérations de l’activité",
+    "effortTime": "Temps effort",
+    "effortTimeDesc": "Durée de la phase d’effort",
+    "restTime": "Temps repos",
+    "restTimeDesc": "Durée de la phase de repos",
+    "startActivity": "Démarrer activité",
+    "saveActivity": "Enregistrer",
+    "namePlaceholder": "Activité sans nom",
+    "descriptionPlaceholder": "Aucune description"
+  },
+  "sessionEdit": {
+    "title": "Modifier séance",
+    "sessionName": "Nom de la séance",
+    "sessionNameRequired": "Nom de séance requis",
+    "namePlaceholder": "ex. Routine du matin",
+    "repeatHeader": "Fréquence de répétition par défaut",
+    "repeatMessage": "Définir la fréquence de répétition par défaut pour cette séance",
+    "every": "Tous les",
+    "unit": "Unités",
+    "activities": "Activités",
+    "noSessions": "Aucune activité ajoutée",
+    "addActivity": "Ajouter activité",
+    "saveSession": "Enregistrer séance",
+    "nameRequiredToast": "Veuillez nommer la séance",
+    "activitiesRequiredToast": "Ajoutez au moins une activité"
+  },
+  "runActivity": {
+    "step": "Étape",
+    "effort": "Effort",
+    "rest": "Repos",
+    "ready": "Prêt ?",
+    "start": "Début",
+    "pause": "Pause",
+    "skipPhase": "Passer phase",
+    "activity": "Activité"
+  },
+  "completed": {
+    "congrats": "Bravo !",
+    "activityCompleted": "Activité terminée",
+    "sessionCompleted": "Séance terminée",
+    "goHome": "Retour accueil",
+    "repeat": "Répéter",
+    "startNext": "Prochaine activité",
+    "nextActivity": "Activité suivante",
+    "completedActivities": "Activités terminées",
+    "scheduledSessions": "Planifier prochaine séance"
+  },
+  "calendar": {
+    "title": "Séances planifiées",
+    "empty": "Aucune séance planifiée",
+    "plan": "Planifier séance",
+    "selectDate": "Choisir date",
+    "schedule": "Planifier",
+    "today": "Aujourd’hui",
+    "tomorrow": "Demain",
+    "notificationTitle": "Séance {{session}}",
+    "unnamedSession": "Sans nom",
+    "notificationBody": "C’est l’heure de votre séance planifiée !",
+    "notificationScheduled": "Séance planifiée",
+    "notificationFailed": "Échec de la planification de la séance"
+  },
+  "share": {
+    "share": "Partager séance",
+    "instructions": "Scannez ce QR code pour importer cette séance"
+  }
+}

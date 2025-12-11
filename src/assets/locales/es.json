@@ -1,0 +1,114 @@
+{
+  "common": {
+    "appTitle": "BackOnFit"
+  },
+  "home": {
+    "startActivity": "Actividad Rápida",
+    "mySessions": "Mis Sesiones",
+    "viewSchedule": "Ver Agenda",
+    "startSession": "Iniciar Sesión",
+    "createSession": "Crear Nueva Sesión",
+    "activities": "actividades",
+    "deleteSessionTitle": "Eliminar Sesión",
+    "deleteSessionMessage": "¿Seguro que quieres eliminar esta sesión?",
+    "cancel": "Cancelar",
+    "delete": "Eliminar"
+  },
+  "scanner": {
+    "title": "Importar Sesión",
+    "instruction": "Escanea un código QR para importar una sesión. Para crear un QR de una sesión, pulsa el botón compartir",
+    "startScan": "Abrir Cámara",
+    "idConflictHeader": "Conflicto de ID",
+    "idConflictMessage": "Ya existe una sesión con este ID. ¿Quieres reemplazarla o crear una nueva con un ID distinto?",
+    "cancel": "Cancelar",
+    "keepBoth": "Mantener Ambas",
+    "replace": "Reemplazar"
+  },
+  "settings": {
+    "title": "Ajustes",
+    "languageHeader": "Idioma",
+    "languageMessage": "Elige tu idioma preferido",
+    "themeHeader": "Modo oscuro",
+    "themeMessage": "Cambiar entre tema claro y oscuro",
+    "activityHeader": "Ajustes de actividad",
+    "activityMessage": "Configurar el comportamiento durante actividades",
+    "vibrateRest": "Vibrar en descansos",
+    "soundRest": "Sonido en descansos",
+    "vibrateEffort": "Vibrar en esfuerzo",
+    "soundEffort": "Sonido en esfuerzo",
+    "about": "Acerca de",
+    "version": "Versión",
+    "debug": "Modo debug"
+  },
+  "activityEdit": {
+    "edit": "Editar Actividad",
+    "quickActivity": "Actividad Rápida",
+    "stepBased": "Por pasos",
+    "timeBased": "Por tiempo",
+    "iterHeader": "Iteraciones",
+    "iterMessage": "Número de iteraciones para esta actividad",
+    "effortTime": "Tiempo de Esfuerzo",
+    "effortTimeDesc": "Duración del esfuerzo",
+    "restTime": "Tiempo de Descanso",
+    "restTimeDesc": "Duración del descanso",
+    "startActivity": "Iniciar Actividad",
+    "saveActivity": "Guardar Actividad",
+    "namePlaceholder": "Actividad sin nombre",
+    "descriptionPlaceholder": "Sin descripción"
+  },
+  "sessionEdit": {
+    "title": "Editar Sesión",
+    "sessionName": "Nombre de la Sesión",
+    "sessionNameRequired": "El nombre es obligatorio",
+    "namePlaceholder": "p. ej. Rutina Matinal",
+    "repeatHeader": "Frecuencia de Repetición predeterminada",
+    "repeatMessage": "Establece la frecuencia de repetición predeterminada para esta sesión",
+    "every": "Cada",
+    "unit": "Unidades",
+    "activities": "Actividades",
+    "noSessions": "Sin actividades añadidas",
+    "addActivity": "Añadir Actividad",
+    "saveSession": "Guardar Sesión",
+    "nameRequiredToast": "Por favor, pon un nombre a la sesión",
+    "activitiesRequiredToast": "Añade al menos una actividad"
+  },
+  "runActivity": {
+    "step": "Paso",
+    "effort": "Esfuerzo",
+    "rest": "Descanso",
+    "ready": "Prepárate",
+    "start": "Comenzar",
+    "pause": "Pausar",
+    "skipPhase": "Saltar Fase",
+    "activity": "Actividad"
+  },
+  "completed": {
+    "congrats": "¡Buen trabajo!",
+    "activityCompleted": "Actividad completada",
+    "sessionCompleted": "Sesión completada",
+    "goHome": "Ir al Inicio",
+    "repeat": "Repetir",
+    "startNext": "Siguiente Actividad",
+    "nextActivity": "Próxima Actividad",
+    "completedActivities": "Actividades Completadas",
+    "scheduledSessions": "Programar Próxima Sesión"
+  },
+  "calendar": {
+    "title": "Sesiones Programadas",
+    "empty": "Sin sesiones programadas",
+    "plan": "Programar Sesión",
+    "selectDate": "Seleccionar Fecha",
+    "schedule": "Programar Sesión",
+    "today": "Hoy",
+    "tomorrow": "Mañana",
+    "notificationTitle": "Sesión {{session}}",
+    "unnamedSession": "Sin nombre",
+    "notificationBody": "¡Es hora de tu sesión programada!",
+    "notificationScheduled": "Sesión Programada",
+    "notificationFailed": "Error al programar la sesión"
+  },
+  "share": {
+    "share": "Compartir Sesión",
+    "instructions": "Escanea este QR para importar la sesión"
+  }
+}

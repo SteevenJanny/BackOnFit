@@ -1,0 +1,42 @@
+<ion-card class="my-card">
+  <ion-card-header>
+    <ion-card-title>{{ title }}</ion-card-title>
+    <ion-card-subtitle>{{ subtitle }}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-picker>
+    <ion-picker-column (ionChange)="onCustomChange($event, true)" [value]="getTimeMinutes()">
+      @for (i of minutes; track i) {
+        <ion-picker-column-option [value]="i">{{ i }}</ion-picker-column-option>
+      }
+      <div slot="suffix">min</div>
+    </ion-picker-column>
+
+    <ion-picker-column (ionChange)="onCustomChange($event, false)" [value]="getTimeSeconds()">
+      @for (i of seconds; track i) {
+        <ion-picker-column-option [value]="i">{{ i }}</ion-picker-column-option>
+      }
+      <div slot="suffix">s</div>
+    </ion-picker-column>
+  </ion-picker>
+
+
+  <ion-card-content>
+    <div class="quick-select">
+      <div class="quick-options">
+        @for (t of [5, 10, 30, 60, 120]; track t) {
+          <ion-chip (click)="onChange(t)"
+                    [outline]="value !== t">
+            <ion-label>
+              {{ t < 60 ? t + 's' : (t / 60) + ' min' }}
+            </ion-label>
+          </ion-chip>
+        }
+      </div>
+    </div>
+
+
+  </ion-card-content>
+
+
+</ion-card>

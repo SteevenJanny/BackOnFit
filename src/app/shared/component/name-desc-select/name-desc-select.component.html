@@ -1,0 +1,24 @@
+<ion-card class="my-card">
+  <ion-card-content>
+
+    <!-- Activity name -->
+    <ion-item>
+      <ion-icon slot="start" name="create-outline" color="primary"></ion-icon>
+      <ion-input
+        [(ngModel)]="activity.name"
+        placeholder="{{ 'activityEdit.namePlaceholder' | t }}"
+      ></ion-input>
+    </ion-item>
+
+    <!-- Activity description -->
+    <ion-item class="ion-margin-top">
+      <ion-icon slot="start" name="document-text-outline" color="primary"></ion-icon>
+      <ion-textarea
+        class="description"
+        [(ngModel)]="activity.description"
+        placeholder="{{ 'activityEdit.descriptionPlaceholder' | t }}"
+      ></ion-textarea>
+    </ion-item>
+
+  </ion-card-content>
+</ion-card>

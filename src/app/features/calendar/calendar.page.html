@@ -1,0 +1,17 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar class="teal-to-cyan" style="padding-bottom: 50px">
+    <ion-buttons slot="start">
+      <ion-button (click)="close()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ "calendar.title" | t }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding home-content">
+  <app-agenda
+    [session]="null"
+  ></app-agenda>
+</ion-content>
+

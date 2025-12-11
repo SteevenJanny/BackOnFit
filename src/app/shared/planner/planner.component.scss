@@ -1,0 +1,14 @@
+.datetime-picker {
+  min-width: 0px;
+  width: 100%;
+  margin: auto;
+}
+
+.modal-content {
+  max-height: 74vh;
+  overflow: scroll;
+}
+
+ion-datetime {
+  --background: var(--ion-card-background);
+}
