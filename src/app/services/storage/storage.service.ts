@@ -105,7 +105,14 @@ export class StorageService {
     }
 
     private async getSessionEntity(sessionId: string): Promise<any> {
-        const rows = await this.query(`SELECT *
+        // Retrieve list of attributes for a session
+        const rows = await this.query(`SELECT id,
+                                              name,
+                                              description,
+                                              default_schedule_time,
+                                              version,
+                                              created_at,
+                                              updated_at
                                        FROM sessions
                                        WHERE id = ?`, [sessionId]);
         return rows?.[0] ?? null;
@@ -113,7 +120,7 @@ export class StorageService {
 
     private async getActivities(sessionId: string) {
         return await this.query(
-            `SELECT *
+            `SELECT id, session_id, name, description, type, order_index, session_id
              FROM activities
              WHERE session_id = ?
              ORDER BY order_index ASC`,
@@ -123,7 +130,7 @@ export class StorageService {
 
     private async getLatestConfig(activityId: string) {
         const rows = await this.query(
-            `SELECT *
+            `SELECT id, activity_id, iterations, effort_time, rest_time, effective_from, created_at, activity_id
              FROM activity_configs
              WHERE activity_id = ?
              ORDER BY effective_from DESC LIMIT 1`,
