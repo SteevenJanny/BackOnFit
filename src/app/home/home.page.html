@@ -39,8 +39,8 @@
     </ion-row>
   </ion-grid>
 
-  @if (sessions.length !== 0) {
-    @for (session of sessions; track session.id) {
+  @if (sessions().length !== 0) {
+    @for (session of sessions(); track session.id) {
       <ion-card class=" my-card session-card ion-margin-top">
         <ion-grid>
           <ion-row>

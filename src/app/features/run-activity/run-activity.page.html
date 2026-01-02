@@ -1,4 +1,4 @@
-<ion-header class="ion-no-border color-control" [ngClass]="phase">
+<ion-header class="ion-no-border color-control" [ngClass]="phase()">
   <ion-toolbar class="color-control">
     <ion-buttons slot="start">
       <ion-button (click)="close()">
@@ -15,7 +15,7 @@
 </ion-header>
 
 <ion-content
-  class="ion-padding run-activity-page color-control" [ngClass]="phase"
+  class="ion-padding run-activity-page color-control" [ngClass]="phase()"
 >
   <div class="session-container">
 
@@ -46,8 +46,8 @@
           </div>
 
           <!-- Phase Indicator -->
-          <div class="phase-indicator" [ngClass]="phase">
-            @switch (phase) {
+          <div class="phase-indicator" [ngClass]="phase()">
+            @switch (phase()) {
               @case ('effort') {
                 <ion-icon name="flame-outline"></ion-icon>
                 <span>{{ "runActivity.effort" | t }}</span>
@@ -66,23 +66,23 @@
         <ion-col size="12" size-sm="6">
 
           <!-- Timer or Step Button -->
-          @if (phase === "rest" || currentActivity.type === "time" || phase === "ready") {
+          @if (phase() === "rest" || currentActivity.type === "time" || phase() === "ready") {
             <div class="timer-section">
-              <div class="timer-display">{{ formatTime(timeLeft) }}</div>
+              <div class="timer-display">{{ formatTime(timeLeft()) }}</div>
 
-              @if (phase === 'effort' && currentActivity.type === "time") {
+              @if (phase() === 'effort' && currentActivity.type === "time") {
                 <ion-progress-bar
-                  [value]="timeLeft / (currentActivity.config.effortTime ?? 1)"
+                  [value]="timeLeft() / (currentActivity.config.effortTime ?? 1)"
                   color="medium"
                 ></ion-progress-bar>
-              } @else if (phase === 'rest') {
+              } @else if (phase() === 'rest') {
                 <ion-progress-bar
-                  [value]="timeLeft / currentActivity.config.restTime"
+                  [value]="timeLeft() / currentActivity.config.restTime"
                   color="medium"
                 ></ion-progress-bar>
-              } @else if (phase === 'ready') {
+              } @else if (phase() === 'ready') {
                 <ion-progress-bar
-                  [value]="timeLeft / readyTime"
+                  [value]="timeLeft() / readyTime"
                   color="medium"
                 ></ion-progress-bar>
 
@@ -115,8 +115,8 @@
   </div>
 </ion-content>
 
-<ion-footer [ngClass]="phase" class="color-control">
-  <div class="toolbar-footer" [ngClass]="phase">
+<ion-footer [ngClass]="phase()" class="color-control">
+  <div class="toolbar-footer" [ngClass]="phase()">
     <ion-button class="footer-btn rounded" (click)="close()">
       <ion-icon slot="icon-only" name="home-outline"></ion-icon>
     </ion-button>
@@ -127,9 +127,5 @@
     <ion-button class="footer-btn rounded" (click)="abandonActivity()">
       <ion-icon slot="icon-only" name="stop-outline"></ion-icon>
     </ion-button>
-    <!--    <ion-button expand="block" color="danger" fill="outline" (click)="abandonActivity()">-->
-    <!--      <ion-icon slot="start" name="stop-outline"></ion-icon>-->
-    <!--      {{ "runActivity.endSession" | t }}-->
-    <!--    </ion-button>-->
   </div>
 </ion-footer>

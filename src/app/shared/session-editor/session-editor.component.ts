@@ -1,4 +1,4 @@
-import {Component, inject, Input} from '@angular/core';
+import {Component, inject, Input, OnInit, signal} from '@angular/core';
 import {
     IonButton,
     IonButtons,
@@ -87,8 +87,9 @@ addIcons({
         IonFooter
     ]
 })
-export class SessionEditorComponent {
-    @Input() session!: Session;
+export class SessionEditorComponent implements OnInit {
+    @Input() sessionInput!: Session;
+    session = signal<Session>({} as Session);
 
     private modalCtrl: ModalController = inject(ModalController);
     private sessionService: SessionService = inject(SessionService);
@@ -98,7 +99,10 @@ export class SessionEditorComponent {
     private translationService = inject(translationService);
 
     constructor() {
+    }
 
+    ngOnInit() {
+        this.session.set(this.sessionInput);
     }
 
     close() {
@@ -107,14 +111,14 @@ export class SessionEditorComponent {
 
     async confirm() {
 
-        if (!this.session.name) {
+        if (!this.session().name) {
             await this.toastCtrl.create({
                 message: this.translationService.t("sessionEdit.nameRequiredToast"),
                 duration: 2000,
                 color: 'danger',
             }).then(toast => toast.present());
             return;
-        } else if (this.session.activities.length === 0) {
+        } else if (this.session().activities.length === 0) {
             await this.toastCtrl.create({
                 message: this.translationService.t("sessionEdit.activitiesRequiredToast"),
                 duration: 2000,
@@ -122,16 +126,16 @@ export class SessionEditorComponent {
             }).then(toast => toast.present());
             return;
         }
-        await this.sessionService.saveSession(this.session);
+        await this.sessionService.saveSession(this.session());
         await this.modalCtrl.dismiss();
     }
 
     async editActivity(activity: Activity) {
         const editedActivity = await this.openActivityEditor(activity);
         if (editedActivity) {
-            const index = this.session.activities.findIndex(a => a.id === activity.id);
+            const index = this.session().activities.findIndex(a => a.id === activity.id);
             if (index !== -1) {
-                this.session.activities[index] = editedActivity;
+                this.session().activities[index] = editedActivity;
             } else {
                 await this.debugger.notify("Trying to edit an activity that does not exist in the session");
             }
@@ -155,7 +159,7 @@ export class SessionEditorComponent {
     }
 
     deleteActivity(activity: Activity) {
-        this.session = this.sessionService.removeActivityFromSession(this.session, activity)
+        this.session.set(this.sessionService.removeActivityFromSession(this.session(), activity))
 
     }
 
@@ -163,7 +167,8 @@ export class SessionEditorComponent {
         const activity: Activity = this.activityService.createTimeActivity();
         const editedActivity = await this.openActivityEditor(activity);
         if (editedActivity) {
-            this.session = this.sessionService.addActivityToSession(this.session, editedActivity);
+            const newSession = this.sessionService.addActivityToSession(this.session(), editedActivity);
+            this.session.set(newSession);
         }
     }
 
@@ -171,8 +176,8 @@ export class SessionEditorComponent {
     reorderActivities(event: any) {
         const from = event.detail.from;
         const to = event.detail.to;
-        const moved = this.session.activities.splice(from, 1)[0];
-        this.session.activities.splice(to, 0, moved);
+        const moved = this.session().activities.splice(from, 1)[0];
+        this.session().activities.splice(to, 0, moved);
         event.detail.complete();
     }
 
@@ -187,7 +192,7 @@ export class SessionEditorComponent {
     }
 
     updateSchedule(serializedDelta: string) {
-        this.session.defaultScheduleTime = serializedDelta;
+        this.session().defaultScheduleTime = serializedDelta;
     }
 
 }

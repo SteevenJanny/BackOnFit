@@ -1,4 +1,4 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, inject, OnInit, signal} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {
@@ -64,8 +64,8 @@ export class RunActivityPage implements OnInit {
     currentActivity!: Activity;
     currentIteration = 1;
     isRunning = false;
-    phase: 'ready' | 'effort' | 'rest' | 'done' = 'ready';
-    timeLeft: number = 0;
+    phase = signal<'ready' | 'effort' | 'rest' | 'done'>('ready');
+    timeLeft=signal<number>(0);
     readyTime: number = 3;
 
     interval: any = null;
@@ -198,16 +198,16 @@ export class RunActivityPage implements OnInit {
 
         this.isRunning = false;
         this.currentIteration = 0;
-        this.timeLeft = 0;
+        this.timeLeft.set(0);
 
-        this.phase = 'ready';
+        this.phase.set('ready');
         this.startReadyPhase();
     }
 
     startReadyPhase() {
-        this.phase = 'ready';
+        this.phase.set('ready');
         this._callback = this.isReadyPhaseDone;
-        this.timeLeft = this.readyTime; // 3 seconds
+        this.timeLeft.set(this.readyTime); // 3 seconds
 
         if (this.isRunning) {
             this.runTimer();
@@ -245,10 +245,10 @@ export class RunActivityPage implements OnInit {
     }
 
     startEffortPhase() {
-        this.phase = 'effort';
+        this.phase.set('effort');
         this._callback = this.isEffortPhaseDone
         if (this.currentActivity.type == "time") {
-            this.timeLeft = this.currentActivity.config.effortTime ?? 0;
+            this.timeLeft.set(this.currentActivity.config.effortTime ?? 0);
             if (this.isRunning) {
                 this.runTimer();
                 this.vibrateEffort();
@@ -275,9 +275,9 @@ export class RunActivityPage implements OnInit {
     }
 
     startRestPhase() {
-        this.phase = 'rest';
+        this.phase.set('rest');
         this._callback = this.isRestPhaseDone
-        this.timeLeft = this.currentActivity.config.restTime;
+        this.timeLeft.set(this.currentActivity.config.restTime);
         if (this.isRunning) {
             this.runTimer();
             this.vibrateRest();
@@ -293,11 +293,11 @@ export class RunActivityPage implements OnInit {
         if (!this.isRunning) {
             this.isRunning = true;
             this.runTimer();
-            if (this.phase === 'ready') {
+            if (this.phase() === 'ready') {
                 this.vibrateEffort(); // Could customize if you want
-            } else if (this.phase === 'effort') {
+            } else if (this.phase() === 'effort') {
                 this.vibrateEffort();
-            } else if (this.phase === 'rest') {
+            } else if (this.phase() === 'rest') {
                 this.vibrateRest();
             }
         } else {
@@ -325,10 +325,10 @@ export class RunActivityPage implements OnInit {
 
     runTimer() {
         this.interval = setInterval(() => {
-            if (this.timeLeft > 0) {
-                this.timeLeft -= 0.01;
+            if (this.timeLeft() > 0) {
+                this.timeLeft.set(this.timeLeft()- 0.01);
             } else {
-                this.timeLeft = 0.0;
+                this.timeLeft.set(0.0);
                 this._callback();
             }
         }, 10);
@@ -336,7 +336,7 @@ export class RunActivityPage implements OnInit {
 
 
     async vibrateEffort() {
-        if (this.phase === "ready") {
+        if (this.phase() === "ready") {
             return;
         }
         if (this.settingService.isSoundEffortEnabled()) {

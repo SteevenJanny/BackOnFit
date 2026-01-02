@@ -112,15 +112,15 @@ describe('AgendaComponent', () => {
 
         await component.findNextSessions();
 
-        expect(component.groupedNotifications.length).toBe(3);
+        expect(component.groupedNotifications().length).toBe(3);
 
         // check grouping order (today → tomorrow → other)
-        expect(component.groupedNotifications[0].day).toBe('calendar.today');
-        expect(component.groupedNotifications[1].day).toBe('calendar.tomorrow');
-        expect(component.groupedNotifications[2].day).toBe(FIXED_OTHER.toLocaleDateString());
+        expect(component.groupedNotifications()[0].day).toBe('calendar.today');
+        expect(component.groupedNotifications()[1].day).toBe('calendar.tomorrow');
+        expect(component.groupedNotifications()[2].day).toBe(FIXED_OTHER.toLocaleDateString());
 
         // check sorting inside a day
-        const otherGroup = component.groupedNotifications[2].items;
+        const otherGroup = component.groupedNotifications()[2].items;
         expect(otherGroup[0].id).toBe(4); // earlier time
         expect(otherGroup[1].id).toBe(1);
     });

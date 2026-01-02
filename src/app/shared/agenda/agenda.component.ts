@@ -1,4 +1,4 @@
-import {Component, inject, Input, OnInit} from '@angular/core';
+import {Component, inject, Input, OnInit, signal} from '@angular/core';
 import {
     IonButton,
     IonCard,
@@ -50,7 +50,7 @@ export class AgendaComponent implements OnInit {
     private translationService: translationService = inject(translationService);
 
     nextSessions: DisplayNotification[] = [];
-    groupedNotifications: { day: string, items: DisplayNotification[] }[] = [];
+    groupedNotifications = signal<{ day: string, items: DisplayNotification[] }[]>([]);
 
     constructor() {
     }
@@ -73,14 +73,14 @@ export class AgendaComponent implements OnInit {
             groups.get(key)!.push(notif);
         }
 
-        // transform into array
-        this.groupedNotifications = Array.from(groups.entries())
-            .map(([day, items]) => ({
-                day: this.formatDay(day),
-                items: items.sort((a, b) => a.when.getTime() - b.when.getTime())
-            }))
-            .sort((a, b) => a.items[0].when.getTime() - b.items[0].when.getTime());
-
+        this.groupedNotifications.set(
+            Array.from(groups.entries())
+                .map(([day, items]) => ({
+                    day: this.formatDay(day),
+                    items: items.sort((a, b) => a.when.getTime() - b.when.getTime())
+                }))
+                .sort((a, b) => a.items[0].when.getTime() - b.items[0].when.getTime())
+        )
     }
 
     formatDay(dateStr: string): string {

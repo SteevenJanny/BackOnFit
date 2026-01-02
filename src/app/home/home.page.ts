@@ -1,4 +1,4 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, inject, OnInit, signal} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {
@@ -74,8 +74,7 @@ export class HomePage implements OnInit {
     private alertCtrl = inject(AlertController);
     private tPipe = inject(TranslatePipe);
 
-    sessions: Session[] = []
-
+    sessions = signal<Session[]>([]);
 
     ngOnInit() {
         this.loadSessions();
@@ -86,7 +85,8 @@ export class HomePage implements OnInit {
     }
 
     private async loadSessions() {
-        this.sessions = await this.sessionService.getAllSessions();
+        const data = await this.sessionService.getAllSessions();
+        this.sessions.set(data);
     }
 
 
@@ -158,7 +158,7 @@ export class HomePage implements OnInit {
         }
         const modal = await this.modalCtrl.create({
             component: SessionEditorComponent,
-            componentProps: {session: session},
+            componentProps: {sessionInput: session},
         });
         await modal.present();
 

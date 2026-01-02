@@ -129,8 +129,7 @@ export class SessionService {
 
     addActivityToSession(session: Session, activity: Activity): Session {
         activity = this.activityService.generateUUID(activity, session);
-        session.activities.push(activity);
-        return session;
+        return {...session, activities: [...session.activities, activity]};
     }
 
     removeActivityFromSession(session: Session, activity: Activity): Session {

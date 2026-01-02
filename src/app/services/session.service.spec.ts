@@ -94,10 +94,10 @@ describe('SessionService', () => {
         const act = {name: 'A'};
         activityMock.generateUUID.and.returnValue({id: 'A1', name: 'A'});
 
-        service.addActivityToSession(session, act as Activity);
+        const newSession = service.addActivityToSession(session, act as Activity);
 
-        expect(session.activities.length).toBe(1);
-        expect(session.activities[0].id).toBe('A1');
+        expect(newSession.activities.length).toBe(1);
+        expect(newSession.activities[0].id).toBe('A1');
     });
 
     it('should warn if removing non-existing activity', () => {

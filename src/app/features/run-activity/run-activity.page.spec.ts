@@ -15,14 +15,6 @@ describe('RunActivityPage', () => {
     let debugMock: any;
     let settingsMock: any;
 
-    // Mocks for NativeAudio, Haptics, KeepAwake
-    // beforeAll(() => {
-    //     // ensure these exist on global so spyOn works reliably
-    //     if (!(NativeAudio as any)) (global as any).NativeAudio = {};
-    //     if (!(Haptics as any)) (global as any).Haptics = {};
-    //     if (!(KeepAwake as any)) (global as any).KeepAwake = {};
-    // });
-
     beforeEach(async () => {
         // Prepare route observable so tests can emit params
         routeSubject = new Subject<any>();
@@ -92,7 +84,7 @@ describe('RunActivityPage', () => {
         // after ngOnInit subscription, component should have started ready phase
         expect(component.currentActivity).toBeDefined();
         expect(component.session).toBeUndefined();
-        expect(component.phase).toBe('ready');
+        expect(component.phase()).toBe('ready');
     }));
 
     it('bootstrapFromParams should notify on invalid activity JSON', fakeAsync(async () => {
@@ -154,20 +146,20 @@ describe('RunActivityPage', () => {
         component.isRunning = true; // emulate started run so runTimer will be called
         component.startReadyPhase();
 
-        expect(component.phase).toBe('ready');
+        expect(component.phase()).toBe('ready');
         expect(typeof component._callback).toBe('function');
         // simulate ready done
         (component._callback as Function)();
         tick();
 
-        expect(component.phase).toBe('effort');
+        expect(component.phase()).toBe('effort');
     }));
 
     // ------------------------------
     // runTimer / skipPhase
     // ------------------------------
     it('runTimer should decrement timeLeft and call callback when time is over', fakeAsync(() => {
-        component.timeLeft = 0.02; // small time so timer triggers quickly
+        component.timeLeft.set(0.02); // small time so timer triggers quickly
         component._callback = jasmine.createSpy('cb');
         component.isRunning = true;
         component.runTimer();
@@ -200,7 +192,7 @@ describe('RunActivityPage', () => {
         spyOn(component, 'vibrateEffort').and.callFake(() => Promise.resolve());
         component.startEffortPhase();
         tick();
-        expect(component.phase).toBe('effort');
+        expect(component.phase()).toBe('effort');
         expect(component.isRunning).toBeTrue();
         expect(component.vibrateEffort).toHaveBeenCalled();
     }));
@@ -250,7 +242,7 @@ describe('RunActivityPage', () => {
         spyOn(component, 'vibrateRest').and.callFake(() => Promise.resolve());
         component.startRestPhase();
         tick();
-        expect(component.phase).toBe('rest');
+        expect(component.phase()).toBe('rest');
         expect(component.vibrateRest).toHaveBeenCalled();
     }));
 
@@ -275,7 +267,7 @@ describe('RunActivityPage', () => {
     // startOrPause toggling
     // ------------------------------
     it('startOrPause should start when stopped and pause when running', fakeAsync(() => {
-        component.phase = 'effort';
+        component.phase.set('effort');
         component.isRunning = false;
         spyOn(component, 'runTimer').and.callFake(() => {
         });
@@ -296,14 +288,14 @@ describe('RunActivityPage', () => {
     // vibrateEffort: no-op when phase is ready
     // ------------------------------
     it('vibrateEffort should return immediately if in ready phase', fakeAsync(async () => {
-        component.phase = 'ready';
+        component.phase.set('ready');
         await component.vibrateEffort();
         expect(NativeAudio.play).not.toHaveBeenCalled();
         expect(Haptics.vibrate).not.toHaveBeenCalled();
     }));
 
     it('vibrateEffort should play sound and vibrate when enabled', fakeAsync(async () => {
-        component.phase = 'effort';
+        component.phase.set('effort');
         settingsMock.isSoundEffortEnabled.and.returnValue(true);
         settingsMock.isVibrateEffortEnabled.and.returnValue(true);
 

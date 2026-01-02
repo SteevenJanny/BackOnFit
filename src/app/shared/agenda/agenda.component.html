@@ -1,4 +1,4 @@
-@if (groupedNotifications.length === 0) {
+@if (groupedNotifications().length === 0) {
 
   <div class="ion-text-center ion-padding ion-margin">
     <div>{{ "calendar.empty" | t }}</div>
@@ -7,7 +7,7 @@
 }
 
 <div class="ion-padding"></div>
-@for (group of groupedNotifications; track group) {
+@for (group of groupedNotifications(); track group.items) {
   <ng-container>
     <div> {{ group.day }}</div>
 

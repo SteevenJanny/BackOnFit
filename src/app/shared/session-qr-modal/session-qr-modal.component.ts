@@ -1,4 +1,4 @@
-import {Component, inject, Input, OnInit} from '@angular/core';
+import {Component, inject, Input, OnInit, signal} from '@angular/core';
 import {ModalController} from '@ionic/angular';
 import {toDataURL} from "qrcode";
 import {Session, SessionService} from "../../services/session.service";
@@ -41,14 +41,14 @@ export class SessionQrModalComponent implements OnInit {
 
     @Input() session!: Session;
     qrDataUrl: string | null = null;
-    loading = true;
+    loading = signal<boolean>(true);
     private sessionService: SessionService = inject(SessionService);
     private modalCtrl: ModalController = inject(ModalController);
 
     async ngOnInit() {
         const payload = this.sessionService.buildPayload(this.session);
         await this.generateQR(payload);
-        this.loading = false;
+        this.loading.set(false);
     }
 
     async generateQR(payload: any) {

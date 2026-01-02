@@ -12,13 +12,13 @@
 
 <ion-content class="ion-padding">
   <p class="session-id-muted">
-    {{ session.id }}
+    {{ session().id }}
   </p>
 
   <div class="title">
     <ion-card-title>{{ "sessionEdit.sessionName" | t }}</ion-card-title>
     <ion-card-subtitle>
-      <div class="warning" [hidden]="!!session.name">
+      <div class="warning" [hidden]="!!session().name">
         {{ "sessionEdit.sessionNameRequired" | t }}
       </div>
     </ion-card-subtitle>
@@ -26,7 +26,7 @@
   <ion-item lines="full" class="input-item">
     <ion-icon slot="start" name="document-text-outline" color="primary"></ion-icon>
     <ion-input
-      [(ngModel)]="session.name"
+      [(ngModel)]="session().name"
       name="sessionName"
       [required]="true"
       [placeholder]="'sessionEdit.namePlaceholder' | t "
@@ -41,7 +41,7 @@
     <app-scheduler
       [onConfirm]="null"
       [onChange]="updateSchedule.bind(this)"
-      [defaultDuration]="session.defaultScheduleTime"
+      [defaultDuration]="session().defaultScheduleTime"
     ></app-scheduler>
   </ion-card>
 
@@ -60,9 +60,9 @@
       </ion-row>
     </ion-grid>
   </div>
-  @if (session.activities.length > 0) {
+  @if (session().activities.length > 0) {
     <ion-reorder-group [disabled]="false" (ionItemReorder)="reorderActivities($event)">
-      @for (activity of session.activities; track activity) {
+      @for (activity of session().activities; track activity.id) {
 
 
         <ion-card class="my-card activity-card">

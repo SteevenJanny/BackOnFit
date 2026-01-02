@@ -77,7 +77,7 @@ describe('HomePage', () => {
         component.ngOnInit();
         tick();
         expect(sessionServiceMock.getAllSessions).toHaveBeenCalled();
-        expect(component.sessions.length).toBe(2);
+        expect(component.sessions().length).toBe(2);
     }));
 
     it('should reload sessions on ionViewWillEnter', fakeAsync(() => {

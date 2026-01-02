@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     namespace "com.backonfit.app"
-    compileSdk rootProject.ext.compileSdkVersion
+    compileSdk 36
     defaultConfig {
         applicationId "com.backonfit.app"
         minSdkVersion rootProject.ext.minSdkVersion
