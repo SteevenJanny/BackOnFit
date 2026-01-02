@@ -93,3 +93,13 @@ My main guidelines for this app are:
 
 
 ## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Future work and features ideas
+
+-[ ] Tracking features (number of sessions done, progress over time, etc.)
+-[ ] Companion app for desktop to manage and prepare sessions (oriented towards professionals)
+-[ ] Single-page website to present the app
+-[ ] Add custom icons for activities (simple stuff, like articulation, muscle, running, swimming, etc.)
+-[ ] Option to duplicate activities in session editing
+
