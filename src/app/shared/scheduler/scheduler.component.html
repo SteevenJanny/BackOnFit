@@ -1,27 +1,27 @@
 @if (onConfirm) {
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button (click)="close()">Cancel</ion-button>
-    </ion-buttons>
-    <ion-buttons slot="end">
-      <ion-button (click)="onConfirm()">Done</ion-button>
-    </ion-buttons>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="close()">Cancel</ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button (click)="onConfirm()">Done</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
 }
 <ion-picker>
-  <ion-picker-column [value]="currentAmount.toString()" (ionChange)="onIonChangeAmount($event)">
+    <ion-picker-column [value]="currentAmount.toString()" (ionChange)="onIonChangeAmount($event)">
 
-    <div slot="prefix">{{"sessionEdit.every" | t}}</div>
-    @for (amount of amountOptions; track amount) {
-      <ion-picker-column-option value="{{ amount }}">
-        {{ amount }}
-      </ion-picker-column-option>
-    }
-  </ion-picker-column>
-  <ion-picker-column [value]="currentUnit" (ionChange)="onIonChangeUnit($event)">
-    <ion-picker-column-option value="minutes">Minutes</ion-picker-column-option>
-    <ion-picker-column-option value="hours">Hours</ion-picker-column-option>
-    <ion-picker-column-option value="days">Days</ion-picker-column-option>
-  </ion-picker-column>
+        <div slot="prefix">{{ "sessionEdit.every" | t }}</div>
+        @for (amount of amountOptions; track amount) {
+            <ion-picker-column-option value="{{ amount }}">
+                {{ amount }}
+            </ion-picker-column-option>
+        }
+    </ion-picker-column>
+    <ion-picker-column [value]="currentUnit" (ionChange)="onIonChangeUnit($event)">
+        <ion-picker-column-option value="minutes">Minutes</ion-picker-column-option>
+        <ion-picker-column-option value="hours">Hours</ion-picker-column-option>
+        <ion-picker-column-option value="days">Days</ion-picker-column-option>
+    </ion-picker-column>
 </ion-picker>
 

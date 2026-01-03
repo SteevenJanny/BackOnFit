@@ -87,20 +87,17 @@ const mockDB = {
         }
 
         if (/^SELECT .* FROM SESSIONS\b/.test(q) && !/WHERE ID=/.test(q)) {
-        //if (query.startsWith('SELECT * FROM sessions WHERE id')) {
             const s = fakeSessions.find(s => s.id === params[0]);
             return {values: s ? [s] : []};
         }
 
         if (/^SELECT .* FROM ACTIVITIES\b/.test(q)) {
-        // if (query.startsWith('SELECT * FROM activities')) {
             const rows = fakeActivities
                 .filter(a => a.session_id === params[0])
                 .sort((a, b) => a.order_index - b.order_index);
             return {values: rows};
         }
         if (/^SELECT .* FROM ACTIVITY_CONFIGS\b/.test(q)) {
-        // if (query.startsWith('SELECT * FROM activity_configs')) {
             const rows = fakeConfigs
                 .filter(c => c.activity_id === params[0])
                 .sort((a, b) => b.effective_from - a.effective_from);

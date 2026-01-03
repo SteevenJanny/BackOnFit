@@ -15,28 +15,28 @@ export const APP_VERSION = '0.0.2';
 
 
 bootstrapApplication(AppComponent, {
-  providers: [
-    {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
-    importProvidersFrom(IonicModule.forRoot({innerHTMLTemplatesEnabled: true})),
-    provideIonicAngular(),
-    provideRouter(routes, withPreloading(PreloadAllModules)),
-    provideAppInitializer(async () => {
+    providers: [
+        {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
+        importProvidersFrom(IonicModule.forRoot({innerHTMLTemplatesEnabled: true})),
+        provideIonicAngular(),
+        provideRouter(routes, withPreloading(PreloadAllModules)),
+        provideAppInitializer(async () => {
 
-      const platform = Capacitor.getPlatform();
-      if (platform === "web") {
-        pwaElements(window);
-        jeepSqlite(window);
-        window.addEventListener('DOMContentLoaded', async () => {
-          const jeepEl = document.createElement("jeep-sqlite");
-          document.body.appendChild(jeepEl);
-          await customElements.whenDefined('jeep-sqlite');
-          jeepEl.autoSave = true;
-        });
-      }
-      const storage = inject(StorageService);
-      const settings = inject(SettingsService);
-      await storage.init();
-      await settings.init();
-    })
-  ]
+            const platform = Capacitor.getPlatform();
+            if (platform === "web") {
+                pwaElements(window);
+                jeepSqlite(window);
+                window.addEventListener('DOMContentLoaded', async () => {
+                    const jeepEl = document.createElement("jeep-sqlite");
+                    document.body.appendChild(jeepEl);
+                    await customElements.whenDefined('jeep-sqlite');
+                    jeepEl.autoSave = true;
+                });
+            }
+            const storage = inject(StorageService);
+            const settings = inject(SettingsService);
+            await storage.init();
+            await settings.init();
+        })
+    ]
 });

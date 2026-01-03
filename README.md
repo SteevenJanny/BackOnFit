@@ -97,9 +97,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Future work and features ideas
 
--[ ] Tracking features (number of sessions done, progress over time, etc.)
--[ ] Companion app for desktop to manage and prepare sessions (oriented towards professionals)
--[ ] Single-page website to present the app
--[ ] Add custom icons for activities (simple stuff, like articulation, muscle, running, swimming, etc.)
--[ ] Option to duplicate activities in session editing
+- [ ] Tracking features (number of sessions done, progress over time, etc.)
+  - This should remain minimal and not too intrusive
+- [ ] Companion app for desktop to manage and prepare sessions (oriented towards professionals)
+- [ ] Single-page website to present the app
+- [ ] Add custom icons for activities (simple stuff, like articulation, muscle, running, swimming, etc.)
+- [ ] Option to duplicate activities in session editing
+- [ ] Try to make run-activity running on the background, even when the screen is off
+    - First attempt with a foreground service on Android was not successful
+    - Probably needs native Android code to work properly, paired with a custom Capacitor plugin
 

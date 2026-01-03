@@ -36,10 +36,20 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.class.css';
 
-html {
-  --ion-safe-area-top: 25px;
+
+@media (orientation: landscape) {
+  html {
+    --ion-safe-area-top: 5px;
+    --ion-safe-area-bottom: 5px;
+  }
 }
 
+@media (orientation: portrait) {
+  html {
+    --ion-safe-area-top: 25px;
+    --ion-safe-area-bottom: 50px;
+  }
+}
 
 .teal-to-cyan {
   --background: linear-gradient(to right, var(--ion-color-primary), var(--ion-color-secondary));
@@ -48,13 +58,10 @@ html {
 
 
 :root {
-
-  --ion-safe-area-bottom: 20px;
-
-  --blue : rgb(68, 125, 247);
-  --green : rgb(91, 198, 95);
-  --yellow : rgb(237, 194, 39);
-  --purple : rgb(143, 43, 245);
+  --blue: rgb(68, 125, 247);
+  --green: rgb(91, 198, 95);
+  --yellow: rgb(237, 194, 39);
+  --purple: rgb(143, 43, 245);
 
   --ion-card-background: #ffffff;
   --ion-background-color: rgb(240, 254, 253);
@@ -132,10 +139,10 @@ html {
 .ion-palette-dark.md {
   /* Backgrounds */
 
-  --blue : rgb(25, 74, 174);
-  --green : rgb(41, 136, 46);
-  --yellow : rgb(181, 145, 25);
-  --purple : rgb(100, 20, 174);
+  --blue: rgb(25, 74, 174);
+  --green: rgb(41, 136, 46);
+  --yellow: rgb(181, 145, 25);
+  --purple: rgb(100, 20, 174);
 
   --ion-background-color: #141a29;
   --ion-text-color: #e8f6f4;
@@ -178,9 +185,9 @@ html {
   /* Ensure gradients still contrast well */
   .teal-to-cyan {
     --background: linear-gradient(
-        to right,
-        var(--ion-color-primary),
-        var(--ion-color-secondary)
+                    to right,
+                    var(--ion-color-primary),
+                    var(--ion-color-secondary)
     );
     --color: var(--ion-color-primary-contrast);
   }

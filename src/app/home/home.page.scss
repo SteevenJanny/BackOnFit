@@ -15,14 +15,17 @@
 ion-button {
   text-transform: none;
 }
-.button-line{
+
+.button-line {
   display: flex;
   justify-content: space-between;
   align-items: start;
-  ion-button{
+
+  ion-button {
     margin-inline: 0;
   }
 }
+
 .session-card {
   ion-col {
     padding: 0;

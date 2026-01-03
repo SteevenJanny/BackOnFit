@@ -1,9 +1,9 @@
-import { TestBed, fakeAsync, tick } from '@angular/core/testing';
-import { HomePage } from './home.page';
-import { ModalController, AlertController } from '@ionic/angular';
+import {TestBed, fakeAsync, tick} from '@angular/core/testing';
+import {HomePage} from './home.page';
+import {ModalController, AlertController} from '@ionic/angular';
 import {Session, SessionService} from '../services/session.service';
-import { TranslatePipe } from '../services/translation/translation.service';
-import { Router } from '@angular/router';
+import {TranslatePipe} from '../services/translation/translation.service';
+import {Router} from '@angular/router';
 
 describe('HomePage', () => {
 
@@ -20,10 +20,10 @@ describe('HomePage', () => {
 
         sessionServiceMock = {
             getAllSessions: jasmine.createSpy('getAllSessions').and.resolveTo([
-                { id: '1', name: 'S1' },
-                { id: '2', name: 'S2' }
+                {id: '1', name: 'S1'},
+                {id: '2', name: 'S2'}
             ]),
-            createSession: jasmine.createSpy('createSession').and.resolveTo({ id: 'NEW', name: 'New session' }),
+            createSession: jasmine.createSpy('createSession').and.resolveTo({id: 'NEW', name: 'New session'}),
             deleteSession: jasmine.createSpy('deleteSession').and.resolveTo(),
             addDefaultSchedule: jasmine.createSpy('addDefaultSchedule').and.callFake((date: Date) => date)
         };
@@ -58,11 +58,11 @@ describe('HomePage', () => {
         await TestBed.configureTestingModule({
             imports: [HomePage],
             providers: [
-                { provide: SessionService, useValue: sessionServiceMock },
-                { provide: ModalController, useValue: modalCtrlMock },
-                { provide: AlertController, useValue: alertCtrlMock },
-                { provide: Router, useValue: routerMock },
-                { provide: TranslatePipe, useValue: translateMock }
+                {provide: SessionService, useValue: sessionServiceMock},
+                {provide: ModalController, useValue: modalCtrlMock},
+                {provide: AlertController, useValue: alertCtrlMock},
+                {provide: Router, useValue: routerMock},
+                {provide: TranslatePipe, useValue: translateMock}
             ]
         }).compileComponents();
 
@@ -110,13 +110,13 @@ describe('HomePage', () => {
     }));
 
     it('openShare should pass session props', fakeAsync(() => {
-        const session = { id: '1', name: 'S1' };
+        const session = {id: '1', name: 'S1'};
 
         component.openShare(session as Session);
         tick();
 
         expect(modalCtrlMock.create).toHaveBeenCalledWith(jasmine.objectContaining({
-            componentProps: { session }
+            componentProps: {session}
         }));
     }));
 
@@ -135,7 +135,7 @@ describe('HomePage', () => {
             })
         );
 
-        const session = { id: '1', name: 'S1' };
+        const session = {id: '1', name: 'S1'};
 
         component.openPlanner(session as Session);
         tick();
@@ -161,7 +161,7 @@ describe('HomePage', () => {
     });
 
     it('runSession should navigate to run-activity with params', async () => {
-        const session = { id: '1', name: 'S1' };
+        const session = {id: '1', name: 'S1'};
         await component.runSession(session as Session);
 
         expect(routerMock.navigate).toHaveBeenCalledWith(
@@ -176,7 +176,7 @@ describe('HomePage', () => {
     // DELETE SESSION
     // --------------------------------------------------------------------
     it('deleteSession should show alert', fakeAsync(() => {
-        const session = { id: '1', name: 'S1' };
+        const session = {id: '1', name: 'S1'};
 
         component.deleteSession(session as Session);
         tick();

@@ -53,7 +53,7 @@ describe('NameDescSelectComponent', () => {
             new CustomEvent('ionInput', {
                 bubbles: true,
                 composed: true,
-                detail: { value: 'New name' }
+                detail: {value: 'New name'}
             })
         );
 
@@ -63,7 +63,7 @@ describe('NameDescSelectComponent', () => {
     }));
 
 
-    it('should update activity.description when textarea changes', fakeAsync( () => {
+    it('should update activity.description when textarea changes', fakeAsync(() => {
         const textareaEl = fixture.debugElement.query(By.css('ion-textarea')).nativeElement;
 
         textareaEl.value = 'New description';
@@ -71,7 +71,7 @@ describe('NameDescSelectComponent', () => {
             new CustomEvent('ionInput', {
                 bubbles: true,
                 composed: true,
-                detail: { value: 'New name' }
+                detail: {value: 'New name'}
             })
         );
         tick();

@@ -82,7 +82,7 @@ describe('PlannerComponent', () => {
         const date = new Date('2024-02-01T12:00:00Z');
 
         component.onChange({
-            detail: { value: date.toISOString() }
+            detail: {value: date.toISOString()}
         });
 
         expect(component.chosen.toISOString()).toBe(date.toISOString());
@@ -99,7 +99,7 @@ describe('PlannerComponent', () => {
             .toHaveBeenCalledWith(component.session, component.chosen);
 
         expect(toastCtrl.create).toHaveBeenCalledWith(
-            jasmine.objectContaining({ message: 'calendar.notificationScheduled' })
+            jasmine.objectContaining({message: 'calendar.notificationScheduled'})
         );
 
         expect(modalCtrl.dismiss).toHaveBeenCalled();
@@ -112,7 +112,7 @@ describe('PlannerComponent', () => {
         tick();
 
         expect(toastCtrl.create).toHaveBeenCalledWith(
-            jasmine.objectContaining({ message: 'calendar.notificationFailed' })
+            jasmine.objectContaining({message: 'calendar.notificationFailed'})
         );
 
         expect(modalCtrl.dismiss).not.toHaveBeenCalled();
@@ -126,9 +126,6 @@ describe('PlannerComponent', () => {
     it('should return current locale', () => {
         expect(component.getLocale()).toBe('en');
     });
-
-
-
 
 
 });

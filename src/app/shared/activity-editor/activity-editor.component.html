@@ -1,72 +1,72 @@
 <ion-header [translucent]="true" class="ion-no-border">
-  <ion-toolbar class="teal-to-cyan">
-    <ion-buttons slot="start">
-      <ion-button (click)="close()">
-        <ion-icon name="arrow-back"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-title>{{ isEditing ? ("activityEdit.edit" | t) : ("activityEdit.quickActivity" | t) }}</ion-title>
-  </ion-toolbar>
+    <ion-toolbar class="teal-to-cyan">
+        <ion-buttons slot="start">
+            <ion-button (click)="close()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>{{ isEditing ? ("activityEdit.edit" | t) : ("activityEdit.quickActivity" | t) }}</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="activity-type-list">
-    @for (type of ["step", "time"]; track type) {
-      <button class="activity-type-btn" data-type="{{ type }}" (click)="changeActivityType(type)">
-        <ion-icon
-          [name]=" type==='step' ?  'walk-outline' : 'time-outline'"
-          size="large"
-        ></ion-icon>
-        <div class=activity-type-title>
-          {{ type === 'step' ? ('activityEdit.stepBased' | t) : ('activityEdit.timeBased' | t) }}
-        </div>
+    <div class="activity-type-list">
+        @for (type of ["step", "time"]; track type) {
+            <button class="activity-type-btn" data-type="{{ type }}" (click)="changeActivityType(type)">
+                <ion-icon
+                        [name]=" type==='step' ?  'walk-outline' : 'time-outline'"
+                        size="large"
+                ></ion-icon>
+                <div class=activity-type-title>
+                    {{ type === 'step' ? ('activityEdit.stepBased' | t) : ('activityEdit.timeBased' | t) }}
+                </div>
 
-      </button>
-    }
-  </div>
+            </button>
+        }
+    </div>
 
-  <div class="editor">
+    <div class="editor">
 
-    @if (isEditing) {
-      <app-name-desc-select
-        [activity]="activity"
-      ></app-name-desc-select>
-    }
+        @if (isEditing) {
+            <app-name-desc-select
+                    [activity]="activity"
+            ></app-name-desc-select>
+        }
 
-    <app-iteration-select
-      [activity]="activity"
-    ></app-iteration-select>
+        <app-iteration-select
+                [activity]="activity"
+        ></app-iteration-select>
 
-    @if (chosenActivityType === "time") {
-      <app-duration-select
-        [activity]="activity"
-        [propertyName]="'effortTime'"
-        [title]="'activityEdit.effortTime' | t"
-        [subtitle]="'activityEdit.effortTimeDesc' | t"
-      ></app-duration-select>
+        @if (chosenActivityType === "time") {
+            <app-duration-select
+                    [activity]="activity"
+                    [propertyName]="'effortTime'"
+                    [title]="'activityEdit.effortTime' | t"
+                    [subtitle]="'activityEdit.effortTimeDesc' | t"
+            ></app-duration-select>
 
-      <app-duration-select
-        [activity]="activity"
-        [propertyName]="'restTime'"
-        [title]="'activityEdit.restTime' | t"
-        [subtitle]="'activityEdit.restTimeDesc' | t"
-      ></app-duration-select>
-    }
+            <app-duration-select
+                    [activity]="activity"
+                    [propertyName]="'restTime'"
+                    [title]="'activityEdit.restTime' | t"
+                    [subtitle]="'activityEdit.restTimeDesc' | t"
+            ></app-duration-select>
+        }
 
-    @if (chosenActivityType === "step") {
-      <app-duration-select
-        [activity]="activity"
-        [propertyName]="'restTime'"
-        [title]="'activityEdit.restTime' | t"
-        [subtitle]="'activityEdit.restTimeDesc' | t"
-      ></app-duration-select>
-    }
-  </div>
+        @if (chosenActivityType === "step") {
+            <app-duration-select
+                    [activity]="activity"
+                    [propertyName]="'restTime'"
+                    [title]="'activityEdit.restTime' | t"
+                    [subtitle]="'activityEdit.restTimeDesc' | t"
+            ></app-duration-select>
+        }
+    </div>
 </ion-content>
 <ion-footer>
-  <ion-button class="plain-button ion-margin-top ion-margin" shape="round" fill="solid" expand="full"
-              (click)="confirm()">
-    <ion-icon slot="start" name="play-outline"></ion-icon>
-    {{ isEditing ? ("activityEdit.saveActivity" | t) : ("activityEdit.startActivity" | t) }}
-  </ion-button>
+    <ion-button class="plain-button ion-margin-top ion-margin" shape="round" fill="solid" expand="full"
+                (click)="confirm()">
+        <ion-icon slot="start" name="play-outline"></ion-icon>
+        {{ isEditing ? ("activityEdit.saveActivity" | t) : ("activityEdit.startActivity" | t) }}
+    </ion-button>
 </ion-footer>

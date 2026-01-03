@@ -1,10 +1,10 @@
-import { TestBed } from '@angular/core/testing';
-import { CompletedPage } from './completed.page';
-import { ActivatedRoute, Router } from '@angular/router';
-import { of } from 'rxjs';
-import { ModalController } from '@ionic/angular';
+import {TestBed} from '@angular/core/testing';
+import {CompletedPage} from './completed.page';
+import {ActivatedRoute, Router} from '@angular/router';
+import {of} from 'rxjs';
+import {ModalController} from '@ionic/angular';
 import {Session, SessionService} from '../../services/session.service';
-import { DebuggerModeService } from '../../services/debugger.service';
+import {DebuggerModeService} from '../../services/debugger.service';
 import {Activity} from "../../services/activity.service";
 
 describe('CompletedPage', () => {
@@ -40,11 +40,11 @@ describe('CompletedPage', () => {
         await TestBed.configureTestingModule({
             imports: [CompletedPage],
             providers: [
-                { provide: Router, useValue: routerMock },
-                { provide: ActivatedRoute, useValue: routeMock },
-                { provide: ModalController, useValue: modalCtrlMock },
-                { provide: SessionService, useValue: sessionServiceMock },
-                { provide: DebuggerModeService, useValue: debuggerMock },
+                {provide: Router, useValue: routerMock},
+                {provide: ActivatedRoute, useValue: routeMock},
+                {provide: ModalController, useValue: modalCtrlMock},
+                {provide: SessionService, useValue: sessionServiceMock},
+                {provide: DebuggerModeService, useValue: debuggerMock},
             ]
         }).compileComponents();
 
@@ -64,7 +64,7 @@ describe('CompletedPage', () => {
         const session = {
             id: '1',
             name: 'Test Session',
-            activities: [{ name: 'A1' }, { name: 'A2' }]
+            activities: [{name: 'A1'}, {name: 'A2'}]
         } as Session;
 
         routeMock.queryParams = of({
@@ -80,7 +80,7 @@ describe('CompletedPage', () => {
     });
 
     it('ngOnInit should call debugger.notify if session has no activities', () => {
-        const session = { id: '1', name: 'Broken Session', activities: [] };
+        const session = {id: '1', name: 'Broken Session', activities: []};
 
         routeMock.queryParams = of({
             session: JSON.stringify(session),
@@ -93,7 +93,7 @@ describe('CompletedPage', () => {
     });
 
     it('ngOnInit should parse a standalone activity', () => {
-        const activity = { name: 'Solo' } as Activity;
+        const activity = {name: 'Solo'} as Activity;
 
         routeMock.queryParams = of({
             activity: JSON.stringify(activity)
@@ -109,8 +109,8 @@ describe('CompletedPage', () => {
     // -----------------------------------------------------
 
     it('repeatActivity() should navigate with correct query params', () => {
-        component.session = { id: '1', name: 'S', activities: [] } as any;
-        component.lastActivity = { name: 'A' } as any;
+        component.session = {id: '1', name: 'S', activities: []} as any;
+        component.lastActivity = {name: 'A'} as any;
         component.currentActivityId = 2;
 
         component.repeatActivity();
@@ -125,7 +125,7 @@ describe('CompletedPage', () => {
     });
 
     it('startNextActivity() should navigate with incremented activity ID', () => {
-        component.session = { id: '1', activities: [] } as any;
+        component.session = {id: '1', activities: []} as any;
         component.currentActivityId = 3;
 
         component.startNextActivity();
@@ -157,7 +157,7 @@ describe('CompletedPage', () => {
 
         modalCtrlMock.create.and.resolveTo(fakeModalElement);
 
-        component.session = { id: '1', activities: [] } as any;
+        component.session = {id: '1', activities: []} as any;
 
         const initialDate = new Date();
         sessionServiceMock.addDefaultSchedule.and.returnValue(initialDate);

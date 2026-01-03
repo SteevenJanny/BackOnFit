@@ -1,7 +1,7 @@
-import { TestBed } from '@angular/core/testing';
-import { CalendarPage } from './calendar.page';
-import { Router } from '@angular/router';
-import { AgendaComponent } from '../../shared/agenda/agenda.component';
+import {TestBed} from '@angular/core/testing';
+import {CalendarPage} from './calendar.page';
+import {Router} from '@angular/router';
+import {AgendaComponent} from '../../shared/agenda/agenda.component';
 
 describe('CalendarPage', () => {
     let component: CalendarPage;
@@ -15,7 +15,7 @@ describe('CalendarPage', () => {
         await TestBed.configureTestingModule({
             imports: [CalendarPage],
             providers: [
-                { provide: Router, useValue: routerMock }
+                {provide: Router, useValue: routerMock}
             ]
         }).compileComponents();
 

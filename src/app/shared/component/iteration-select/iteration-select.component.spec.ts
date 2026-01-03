@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { IterationSelectComponent } from './iteration-select.component';
-import { Activity } from '../../../services/activity.service';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {IterationSelectComponent} from './iteration-select.component';
+import {Activity} from '../../../services/activity.service';
 
 describe('IterationSelectComponent', () => {
     let component: IterationSelectComponent;

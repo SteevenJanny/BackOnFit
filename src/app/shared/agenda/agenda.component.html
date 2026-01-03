@@ -1,65 +1,65 @@
 @if (groupedNotifications().length === 0) {
 
-  <div class="ion-text-center ion-padding ion-margin">
-    <div>{{ "calendar.empty" | t }}</div>
-    <ion-icon size="large" name="notifications-off-outline" class="ion-margin"></ion-icon>
-  </div>
+    <div class="ion-text-center ion-padding ion-margin">
+        <div>{{ "calendar.empty" | t }}</div>
+        <ion-icon size="large" name="notifications-off-outline" class="ion-margin"></ion-icon>
+    </div>
 }
 
 <div class="ion-padding"></div>
 @for (group of groupedNotifications(); track group.items) {
-  <ng-container>
-    <div> {{ group.day }}</div>
+    <ng-container>
+        <div> {{ group.day }}</div>
 
-    @for (item of group.items; track item) {
-      <div class="notif-wrapper">
-        <ion-card class="my-card">
-          <ion-card-header>
-            <ion-grid class="ion-no-margin">
-              <ion-row>
-                <ion-col size="10">
-                  <ion-card-title>
-                    {{ item.sessionName }}
-                  </ion-card-title>
-                  <ion-card-subtitle>
-                    <div class="date-container">
-                      <ion-icon name="calendar-outline"></ion-icon>
-                      {{
-                        item.when.toLocaleDateString(getLocale(), {
-                          weekday: 'short',
-                          month: 'short',
-                          day: 'numeric',
-                          year: 'numeric'
-                        })
-                      }}
-                    </div >
-                    <div class="date-container ion-margin-start">
-                      <ion-icon name="time-outline"></ion-icon>
-                      {{
-                        item.when.toLocaleTimeString(getLocale(), {
-                          hour: '2-digit', minute: '2-digit'
-                        })
-                      }}
-                    </div>
-                  </ion-card-subtitle>
-                  <ion-card-subtitle color="primary">
-                    <ion-icon name="notifications-outline"></ion-icon>
-                    {{ item.delta }}
-                  </ion-card-subtitle>
-                </ion-col>
-                <ion-col size="2">
-                  <ion-button fill="clear" color="danger" (click)="removeNotification(item)">
-                    <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
-                  </ion-button>
-                </ion-col>
+        @for (item of group.items; track item) {
+            <div class="notif-wrapper">
+                <ion-card class="my-card">
+                    <ion-card-header>
+                        <ion-grid class="ion-no-margin">
+                            <ion-row>
+                                <ion-col size="10">
+                                    <ion-card-title>
+                                        {{ item.sessionName }}
+                                    </ion-card-title>
+                                    <ion-card-subtitle>
+                                        <div class="date-container">
+                                            <ion-icon name="calendar-outline"></ion-icon>
+                                            {{
+                                                item.when.toLocaleDateString(getLocale(), {
+                                                    weekday: 'short',
+                                                    month: 'short',
+                                                    day: 'numeric',
+                                                    year: 'numeric'
+                                                })
+                                            }}
+                                        </div>
+                                        <div class="date-container ion-margin-start">
+                                            <ion-icon name="time-outline"></ion-icon>
+                                            {{
+                                                item.when.toLocaleTimeString(getLocale(), {
+                                                    hour: '2-digit', minute: '2-digit'
+                                                })
+                                            }}
+                                        </div>
+                                    </ion-card-subtitle>
+                                    <ion-card-subtitle color="primary">
+                                        <ion-icon name="notifications-outline"></ion-icon>
+                                        {{ item.delta }}
+                                    </ion-card-subtitle>
+                                </ion-col>
+                                <ion-col size="2">
+                                    <ion-button fill="clear" color="danger" (click)="removeNotification(item)">
+                                        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+                                    </ion-button>
+                                </ion-col>
 
-              </ion-row>
-            </ion-grid>
+                            </ion-row>
+                        </ion-grid>
 
-          </ion-card-header>
-        </ion-card>
+                    </ion-card-header>
+                </ion-card>
 
-      </div>
-    }
-  </ng-container>
+            </div>
+        }
+    </ng-container>
 }

@@ -6,41 +6,41 @@ import {distinctUntilChanged, map} from "rxjs/operators";
 @Injectable({providedIn: 'root'})
 export class DebuggerModeService {
 
-  private settings = inject(SettingsService);
-  private toastCtrl = inject(ToastController);
-  private enabled = false;
+    private settings = inject(SettingsService);
+    private toastCtrl = inject(ToastController);
+    private enabled = false;
 
-  constructor() {
-    this.load();
-  }
+    constructor() {
+        this.load();
+    }
 
-  private load() {
-    this.enabled = this.settings.getDebugMode();
+    private load() {
+        this.enabled = this.settings.getDebugMode();
     this.settings.changes.pipe(
       map(s => s.debugMode),
       distinctUntilChanged(),
     ).subscribe(debugMode => {
       if (debugMode !== undefined) {
-        this.enabled = debugMode;
+            this.enabled = debugMode;
       }
-    });
-  }
+        });
+    }
 
-  isEnabled(): boolean {
-    return this.enabled;
-  }
+    isEnabled(): boolean {
+        return this.enabled;
+    }
 
-  async notify(message: string) {
-    console.error('[DEBUG]', message);
-    if (!this.enabled) return;
+    async notify(message: string) {
+        console.error('[DEBUG]', message);
+        if (!this.enabled) return;
 
-    const toast = await this.toastCtrl.create({
-      message,
-      duration: 4000,
-      color: 'warning',
-      position: 'top'
-    });
+        const toast = await this.toastCtrl.create({
+            message,
+            duration: 4000,
+            color: 'warning',
+            position: 'top'
+        });
 
-    await toast.present();
-  }
+        await toast.present();
+    }
 }
