@@ -1,4 +1,4 @@
-import {Injectable, Pipe, PipeTransform} from '@angular/core';
+import {ChangeDetectorRef, Injectable, Pipe, PipeTransform} from '@angular/core';
 import i18next from 'i18next';
 import HttpBackend from 'i18next-http-backend';
 
@@ -78,12 +78,14 @@ async function initI18n(language?: string): Promise<void> {
     pure: false
 })
 export class TranslatePipe implements PipeTransform {
+
+    constructor(private cdr: ChangeDetectorRef) {
+        i18next.on('languageChanged', () => this.cdr.markForCheck());
+        i18next.on('loaded', () => this.cdr.markForCheck());
+    }
+
     transform(key: string): string {
         if (!key) return '';
-        try {
-            return i18next.t(key) || key;
-        } catch {
-            return key;
-        }
+        return i18next.t(key) || key;
     }
 }

@@ -1,166 +1,154 @@
 <ion-header [translucent]="true" class="ion-no-border">
-  <ion-toolbar class="teal-to-cyan" style="padding-bottom: 50px">
-    <ion-buttons slot="start">
-      <ion-button (click)="close()">
-        <ion-icon name="arrow-back"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-title>{{ "settings.title" | t }}</ion-title>
-  </ion-toolbar>
+    <ion-toolbar class="teal-to-cyan" style="padding-bottom: 10px">
+        <ion-buttons slot="start">
+            <ion-button (click)="close()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>{{ "settings.title" | t }}</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding settings-page">
 
-  <!-- Language Section -->
-  <ion-card class="my-card">
-    <ion-card-header>
-      <ion-grid>
-        <ion-row>
-          <ion-col size="2" class="ion-text-center ion-align-self-center">
-            <ion-icon name="globe-outline" class="primary"></ion-icon>
-          </ion-col>
-          <ion-col size="8">
-            <ion-card-title> {{ "settings.languageHeader" | t }}</ion-card-title>
-            <ion-card-subtitle> {{ "settings.languageMessage" | t }}</ion-card-subtitle>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card-header>
-    <ion-card-content style="border-top: 1px solid var(--ion-color-light);">
-      <div class="language-list">
-        @for (lang of languages; track lang.code) {
-          <button class="lang-btn" (click)="changeLanguage(lang.code)" data-lang="{{ lang.code }}">
-            <div>
-              <div class="lang-title"> {{ lang.nativeName }}</div>
-              <div class="lang-subtitle">{{ lang.name }}</div>
+    <!-- Language Section -->
+    <ion-card class="my-card">
+        <ion-card-header>
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="2" class="ion-text-center ion-align-self-center">
+                        <ion-icon name="globe-outline" class="primary"></ion-icon>
+                    </ion-col>
+                    <ion-col size="8">
+                        <ion-card-title> {{ "settings.languageHeader" | t }}</ion-card-title>
+                        <ion-card-subtitle> {{ "settings.languageMessage" | t }}</ion-card-subtitle>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-card-header>
+        <ion-card-content style="border-top: 1px solid var(--ion-color-light);">
+            <div class="language-list">
+                @for (lang of languages; track lang.code) {
+                    <button class="lang-btn" (click)="changeLanguage(lang.code)" data-lang="{{ lang.code }}">
+                        <div>
+                            <div class="lang-title"> {{ lang.nativeName }}</div>
+                            <div class="lang-subtitle">{{ lang.name }}</div>
+                        </div>
+                        <div class="selected-indicator"></div>
+                    </button>
+                }
             </div>
-            <div class="selected-indicator"></div>
-          </button>
-        }
-      </div>
-    </ion-card-content>
-  </ion-card>
+        </ion-card-content>
+    </ion-card>
 
 
-  <!-- Theme Section -->
-  <ion-card class="my-card ion-margin-top">
-    <ion-card-header>
-      <ion-grid class="ion-padding-end">
-        <ion-row>
-          <ion-col size="2" class="ion-text-center ion-align-self-center">
-            <ion-icon name="color-palette-outline" class="secondary"></ion-icon>
-          </ion-col>
-          <ion-col size="8">
-            <ion-card-title> {{ "settings.themeHeader" | t }}</ion-card-title>
-            <ion-card-subtitle> {{ "settings.themeMessage" | t }}</ion-card-subtitle>
-          </ion-col>
+    <!-- Theme Section -->
+    <ion-card class="my-card ion-margin-top">
+        <ion-card-header>
+            <ion-grid class="ion-padding-end">
+                <ion-row>
+                    <ion-col size="2" class="ion-text-center ion-align-self-center">
+                        <ion-icon name="color-palette-outline" class="secondary"></ion-icon>
+                    </ion-col>
+                    <ion-col size="8">
+                        <ion-card-title> {{ "settings.themeHeader" | t }}</ion-card-title>
+                        <ion-card-subtitle> {{ "settings.themeMessage" | t }}</ion-card-subtitle>
+                    </ion-col>
 
-          <ion-col size="2" class="ion-text-center ion-align-self-center">
-            <ion-toggle
-              color="secondary"
-              size="large"
-              [checked]="isDarkModeEnabled"
-              (ionChange)="setSettings($event.detail.checked? 'dark' : 'light', 'theme')"
-            ></ion-toggle>
-          </ion-col>
+                    <ion-col size="2" class="ion-text-center ion-align-self-center">
+                        <ion-toggle
+                                color="secondary"
+                                size="large"
+                                [checked]="isDarkModeEnabled"
+                                (ionChange)="setSettings($event.detail.checked? 'dark' : 'light', 'theme')"
+                        ></ion-toggle>
+                    </ion-col>
 
-        </ion-row>
-      </ion-grid>
-    </ion-card-header>
-  </ion-card>
+                </ion-row>
+            </ion-grid>
+        </ion-card-header>
+    </ion-card>
 
-  <!-- Activity run Section -->
-  <ion-card class="my-card ion-margin-top">
-    <ion-card-header>
-      <ion-grid class="ion-padding-end">
-        <ion-row>
-          <ion-col size="2" class="ion-text-center ion-align-self-center">
-            <ion-icon name="play-circle-outline" class="warning"></ion-icon>
-          </ion-col>
-          <ion-col>
-            <ion-card-title> {{ "settings.activityHeader" | t }}</ion-card-title>
-            <ion-card-subtitle> {{ "settings.activityMessage" | t }}</ion-card-subtitle>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card-header>
-
-
-    <ion-card-content style="border-top: 1px solid var(--ion-color-light);">
-      <!-- Control for vibration and sound during both effort and rest periods -->
-      <ion-grid>
-        <ion-row>
-          <ion-col size="10">
-            {{ "settings.vibrateRest" | t }}
-          </ion-col>
-          <ion-col>
-            <ion-toggle
-              color="warning"
-              [checked]="isVibrateRestEnabled"
-              (ionChange)="setSettings($event.detail.checked, 'vibrateRest')"
-            ></ion-toggle>
-          </ion-col>
-        </ion-row>
-
-        <ion-row>
-          <ion-col size="10">
-            <p> {{ "settings.soundRest" | t }}</p>
-          </ion-col>
-          <ion-col>
-            <ion-toggle
-              color="warning"
-              [checked]="isSoundRestEnabled"
-              (ionChange)="setSettings($event.detail.checked, 'soundRest')"
-            ></ion-toggle>
-          </ion-col>
-        </ion-row>
-        <br/>
-        <ion-row>
-          <ion-col size="10">
-            <p> {{ "settings.vibrateEffort" | t }}</p>
-          </ion-col>
-          <ion-col>
-            <ion-toggle
-              color="warning"
-              [checked]="isVibrateEffortEnabled"
-              (ionChange)="setSettings($event.detail.checked, 'vibrateEffort')"
-            ></ion-toggle>
-          </ion-col>
-        </ion-row>
-
-        <ion-row>
-          <ion-col size="10">
-            <p> {{ "settings.soundEffort" | t }}</p>
-          </ion-col>
-          <ion-col>
-            <ion-toggle
-              color="warning"
-              [checked]="isSoundEffortEnabled"
-              (ionChange)="setSettings($event.detail.checked, 'soundEffort')"
-            ></ion-toggle>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+    <!-- Activity run Section -->
+    <ion-card class="my-card ion-margin-top">
+        <ion-card-header>
+            <ion-grid class="ion-padding-end">
+                <ion-row>
+                    <ion-col size="2" class="ion-text-center ion-align-self-center">
+                        <ion-icon name="play-circle-outline" class="warning"></ion-icon>
+                    </ion-col>
+                    <ion-col>
+                        <ion-card-title> {{ "settings.activityHeader" | t }}</ion-card-title>
+                        <ion-card-subtitle> {{ "settings.activityMessage" | t }}</ion-card-subtitle>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-card-header>
 
 
-    </ion-card-content>
-  </ion-card>
+        <ion-card-content style="border-top: 1px solid var(--ion-color-light);">
+            <!-- Control for vibration and sound during both effort and rest periods -->
+
+            <ion-item lines="none" class="activity-settings">
+                {{ "settings.vibrateRest" | t }}
+                <ion-toggle
+                        slot="end"
+                        color="warning"
+                        [checked]="isVibrateRestEnabled"
+                        (ionChange)="setSettings($event.detail.checked, 'vibrateRest')"
+                ></ion-toggle>
+            </ion-item>
+
+            <ion-item lines="none" class="activity-settings">
+                {{ "settings.soundRest" | t }}
+                <ion-toggle
+                        slot="end"
+                        color="warning"
+                        [checked]="isSoundRestEnabled"
+                        (ionChange)="setSettings($event.detail.checked, 'soundRest')"
+                ></ion-toggle>
+            </ion-item>
+            <br/>
+
+            <ion-item lines="none" class="activity-settings">
+                {{ "settings.vibrateEffort" | t }}
+                <ion-toggle
+                        slot="end"
+                        color="warning"
+                        [checked]="isVibrateEffortEnabled"
+                        (ionChange)="setSettings($event.detail.checked, 'vibrateEffort')"
+                ></ion-toggle>
+            </ion-item>
+
+            <ion-item lines="none" class="activity-settings">
+                {{ "settings.soundEffort" | t }}
+                <ion-toggle
+                        slot="end"
+                        color="warning"
+                        [checked]="isSoundEffortEnabled"
+                        (ionChange)="setSettings($event.detail.checked, 'soundEffort')"
+                ></ion-toggle>
+            </ion-item>
 
 
-  <!-- Theme Section -->
-  <ion-card class="my-card ion-margin-top">
-    <ion-card-header>
-      <ion-grid class="ion-padding-end">
-        <ion-row>
-          <ion-col size="2" class="ion-text-center ion-align-self-center">
-            <ion-icon name="information-circle-outline" class="tertiary"></ion-icon>
-          </ion-col>
-          <ion-col class="ion-align-self-center">
-            <ion-card-title> {{ "settings.about" | t }}</ion-card-title>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card-header>
+        </ion-card-content>
+    </ion-card>
+
+
+    <!-- Theme Section -->
+    <ion-card class="my-card ion-margin-top">
+        <ion-card-header>
+            <ion-grid class="ion-padding-end">
+                <ion-row>
+                    <ion-col size="2" class="ion-text-center ion-align-self-center">
+                        <ion-icon name="information-circle-outline" class="tertiary"></ion-icon>
+                    </ion-col>
+                    <ion-col class="ion-align-self-center">
+                        <ion-card-title> {{ "settings.about" | t }}</ion-card-title>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-card-header>
 
         <ion-card-content style="border-top: 1px solid var(--ion-color-light);">
             <ion-grid>
@@ -181,6 +169,6 @@
                 ></ion-toggle>
             </ion-item>
 
-    </ion-card-content>
-  </ion-card>
+        </ion-card-content>
+    </ion-card>
 </ion-content>

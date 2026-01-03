@@ -64,8 +64,8 @@ export class SettingsService {
         this.changes.pipe(
             map(s => s.language),
             distinctUntilChanged(),
-        ).subscribe(language => {
-            i18next.changeLanguage(language);
+        ).subscribe(async language => {
+            await i18next.changeLanguage(language);
         })
 
         this.changes.pipe(

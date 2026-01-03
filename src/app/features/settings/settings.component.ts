@@ -1,7 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {
     IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol,
-    IonContent, IonGrid, IonHeader, IonIcon, IonRow,
+    IonContent, IonGrid, IonHeader, IonIcon, IonRow, IonItem,
     IonTitle, IonToggle, IonToolbar
 } from "@ionic/angular/standalone";
 import {SettingsService, SettingsModel} from "../../services/settings.service";
@@ -50,6 +50,7 @@ addIcons({
         IonCardSubtitle,
         IonCardHeader,
         IonCardContent,
+        IonItem
     ]
 })
 export class SettingsComponent {
@@ -77,12 +78,10 @@ export class SettingsComponent {
     }
 
     ionViewWillEnter() {
-        this.changeLanguage(this.settingsService.getLanguage() || 'en');
-
+        this.setSelectedLanguageButton(this.settingsService.getLanguage() || 'en');
     }
 
-    async changeLanguage(langCode: string) {
-        // Change btn class to  "lang-btn" + (lang.code === selectedLang ? " selected" : "");
+    private setSelectedLanguageButton(langCode: string) {
         const btns = document.getElementsByClassName('lang-btn');
         for (let i = 0; i < btns.length; i++) {
             const btn = btns[i];
@@ -92,7 +91,11 @@ export class SettingsComponent {
                 btn.classList.remove('selected');
             }
         }
-        this.setSettings(langCode, 'language');
+    }
+
+    async changeLanguage(langCode: string) {
+        this.setSelectedLanguageButton(langCode);
+        await this.setSettings(langCode, 'language');
     }
 
     close() {

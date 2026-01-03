@@ -1,10 +1,10 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { SettingsComponent } from './settings.component';
-import { SettingsService } from '../../services/settings.service';
-import { DebuggerModeService } from '../../services/debugger.service';
-import { ModalController } from '@ionic/angular';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {SettingsComponent} from './settings.component';
+import {SettingsService} from '../../services/settings.service';
+import {DebuggerModeService} from '../../services/debugger.service';
+import {ModalController} from '@ionic/angular';
 import {TranslatePipe, translationService} from '../../services/translation/translation.service';
-import { Capacitor } from '@capacitor/core';
+import {Capacitor} from '@capacitor/core';
 
 describe('SettingsComponent', () => {
     let component: SettingsComponent;
@@ -43,10 +43,10 @@ describe('SettingsComponent', () => {
         await TestBed.configureTestingModule({
             imports: [SettingsComponent],
             providers: [
-                { provide: SettingsService, useValue: settingsMock },
-                { provide: DebuggerModeService, useValue: debuggerMock },
-                { provide: ModalController, useValue: modalMock },
-                { provide: translationService, useValue: translationMock },
+                {provide: SettingsService, useValue: settingsMock},
+                {provide: DebuggerModeService, useValue: debuggerMock},
+                {provide: ModalController, useValue: modalMock},
+                {provide: translationService, useValue: translationMock},
                 TranslatePipe
             ]
         }).compileComponents();
@@ -66,18 +66,6 @@ describe('SettingsComponent', () => {
         const comp2 = TestBed.createComponent(SettingsComponent).componentInstance;
 
         expect(debuggerMock.notify).toHaveBeenCalledWith('Language es is not supported!');
-    });
-
-    // -----------------------------------------------------
-    // LIFECYCLE
-    // -----------------------------------------------------
-    it('should call changeLanguage on ionViewWillEnter', () => {
-        const spy = spyOn(component, 'changeLanguage');
-        settingsMock.getLanguage.and.returnValue('fr');
-
-        component.ionViewWillEnter();
-
-        expect(spy).toHaveBeenCalledWith('fr');
     });
 
     // -----------------------------------------------------
@@ -117,7 +105,7 @@ describe('SettingsComponent', () => {
     // -----------------------------------------------------
     it('should update settings through service', async () => {
         await component.setSettings('dark', 'theme');
-        expect(settingsMock.update).toHaveBeenCalledWith({ theme: 'dark' });
+        expect(settingsMock.update).toHaveBeenCalledWith({theme: 'dark'});
     });
 
     // -----------------------------------------------------

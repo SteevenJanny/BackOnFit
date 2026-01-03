@@ -47,7 +47,6 @@ ion-card {
     display: block;
     padding: 0;
     margin: 0;
-    // border-bottom: 1px solid var(--ion-color-light);
   }
 
   ion-card-content {
@@ -110,4 +109,9 @@ ion-card {
 
 .lang-btn.selected .selected-indicator {
   display: inline-block;
+}
+
+.activity-settings {
+  --background: var(--ion-card-background);
+  font-size: 0.875rem;
 }
