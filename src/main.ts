@@ -11,6 +11,7 @@ import {defineCustomElements as pwaElements} from '@ionic/pwa-elements/loader';
 import {defineCustomElements as jeepSqlite} from 'jeep-sqlite/loader';
 import {StorageService} from "./app/services/storage/storage.service";
 
+export const APP_VERSION = '0.0.2';
 
 
 bootstrapApplication(AppComponent, {

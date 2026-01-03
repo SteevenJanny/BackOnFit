@@ -162,28 +162,24 @@
       </ion-grid>
     </ion-card-header>
 
-    <ion-card-content style="border-top: 1px solid var(--ion-color-light);">
-      <ion-grid>
-        <ion-row>
-          <ion-col style="font-weight: bold;"> {{ "common.appTitle" | t }}</ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col> {{ "settings.version" | t }} : 1.0.0</ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col size="10">
-            {{ "settings.debug" | t }}
-
-          </ion-col>
-          <ion-col>
-            <ion-toggle
-              color="tertiary"
-              [checked]="isDebugModeEnabled"
-              (ionChange)="setSettings($event.detail.checked, 'debugMode')"
-            ></ion-toggle>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+        <ion-card-content style="border-top: 1px solid var(--ion-color-light);">
+            <ion-grid>
+                <ion-row>
+                    <ion-col style="font-weight: bold;"> {{ "common.appTitle" | t }}</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col> {{ "settings.version" | t }} : {{ APP_VERSION }}</ion-col>
+                </ion-row>
+            </ion-grid>
+            <ion-item lines="none" class="activity-settings">
+                {{ "settings.debug" | t }}
+                <ion-toggle
+                        slot="end"
+                        color="tertiary"
+                        [checked]="isDebugModeEnabled"
+                        (ionChange)="setSettings($event.detail.checked, 'debugMode')"
+                ></ion-toggle>
+            </ion-item>
 
     </ion-card-content>
   </ion-card>

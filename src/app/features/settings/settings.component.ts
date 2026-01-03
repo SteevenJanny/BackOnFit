@@ -17,6 +17,7 @@ import {
     informationCircleOutline
 } from "ionicons/icons";
 import {DebuggerModeService} from "../../services/debugger.service";
+import {APP_VERSION} from "../../../main";
 
 addIcons({
     arrowBack,
@@ -128,4 +129,6 @@ export class SettingsComponent {
     get isDebugModeEnabled(): boolean {
         return this.settingsService.getDebugMode();
     }
+
+    protected readonly APP_VERSION = APP_VERSION;
 }
