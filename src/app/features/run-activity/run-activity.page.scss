@@ -40,24 +40,45 @@ ion-title .scrolling-text {
     --ion-toolbar-background: var(--yellow);
   }
 }
+
 .main-grid {
   margin: 0;
   width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.main-row {
+  flex: 1;
+  display: flex;
+}
+
+@media (orientation: portrait) {
+  .main-row {
+    flex-direction: column;
+  }
+
+}
+
+@media (orientation: landscape) {
+  .main-row {
+    flex-direction: row;
+  }
+}
+
+.main-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 
 .run-activity-page {
 
   .session-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-  }
-  .activity-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    height: 100%;
   }
 
   .name-card {
@@ -85,29 +106,29 @@ ion-title .scrolling-text {
   }
 
   .iteration-display {
-    margin-top: 1rem;
+    // margin-top: 1rem;
     text-align: center;
 
     .iteration-label {
+      margin: 0;
       font-size: 1rem;
       color: var(--ion-text-color);
     }
 
     .iteration-count {
-      margin-top: 0.2rem;
+      margin-top: 0rem;
       font-size: 2rem;
       font-weight: 700;
     }
   }
+
   .phase-indicator {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 1rem auto auto;
     gap: 0.5rem;
-    width: 80%;
     max-width: 500px;
-    padding: 1rem 0;
+    padding: 0;
 
     font-weight: 600;
     text-transform: uppercase;
@@ -115,17 +136,16 @@ ion-title .scrolling-text {
     font-size: clamp(1rem, 10vw, 2rem);
 
   }
+
   .timer-section {
     width: 100%;
-    margin: 1rem auto auto;
     max-width: 750px;
     text-align: center;
 
     .timer-display {
-
       font-size: clamp(1rem, 15vw, 4rem);
       font-weight: bold;
-      margin: 1rem 0;
+      margin: 0;
     }
 
     ion-progress-bar {
@@ -136,11 +156,9 @@ ion-title .scrolling-text {
   }
 
   .controls {
-    margin-top: 1rem;
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
   }
 
   .primary-btn {
@@ -164,17 +182,19 @@ ion-footer {
   display: flex;
   justify-content: space-around;
   background: var(--ion-background-color);
-  padding-bottom: 50px;
+  padding-bottom: var(--ion-safe-area-bottom);
 
   .footer-btn {
     height: 50px;
     --border-radius: 25px;
     --background: var(--ion-color-light);
     --color: var(--ion-color-dark);
-    &.rounded{
+
+    &.rounded {
       width: 50px;
     }
-    &.long{
+
+    &.long {
       min-width: 200px;
     }
   }

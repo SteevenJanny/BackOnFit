@@ -2,8 +2,8 @@ import {Component, inject, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {
-    IonButton,
-    IonContent, IonIcon,
+    IonButton, IonCol,
+    IonContent, IonGrid, IonIcon, IonRow,
 } from '@ionic/angular/standalone';
 import {ActivatedRoute, Router} from "@angular/router";
 import {ModalController} from "@ionic/angular";
@@ -36,7 +36,7 @@ addIcons({
     templateUrl: './completed.page.html',
     styleUrls: ['./completed.page.scss'],
     standalone: true,
-    imports: [TranslatePipe, IonContent, CommonModule, FormsModule, IonButton, IonIcon]
+    imports: [TranslatePipe, IonContent, CommonModule, FormsModule, IonButton, IonIcon, IonGrid, IonRow, IonCol]
 })
 export class CompletedPage implements OnInit {
     session: Session | undefined = undefined;

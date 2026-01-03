@@ -4,6 +4,7 @@
   margin-top: -0.5rem;
   text-align: right;
 }
+
 ion-footer {
   padding-bottom: var(--ion-safe-area-bottom);
 }
@@ -57,6 +58,7 @@ ion-fab-list {
 
 .activity-card {
   margin-inline: 10px;
+
   ion-card-header {
     padding-top: 0;
 
@@ -67,6 +69,7 @@ ion-fab-list {
     display: flex;
     flex-direction: row;
     align-items: center;
+
     ion-icon {
       margin-right: 8px;
     }
@@ -86,16 +89,19 @@ ion-fab-list {
   ion-chip {
     font-size: 0.75rem;
     padding: 0.5rem;
-    &.effort{
+
+    &.effort {
       --background: var(--green);
     }
-    &.rest{
+
+    &.rest {
       --background: var(--blue);
     }
 
   }
-  ion-icon{
+
+  ion-icon {
     margin-right: 3px;
-    margin-left:0;
+    margin-left: 0;
   }
 }

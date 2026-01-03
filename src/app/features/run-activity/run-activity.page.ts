@@ -65,7 +65,7 @@ export class RunActivityPage implements OnInit {
     currentIteration = 1;
     isRunning = false;
     phase = signal<'ready' | 'effort' | 'rest' | 'done'>('ready');
-    timeLeft=signal<number>(0);
+    timeLeft = signal<number>(0);
     readyTime: number = 3;
 
     interval: any = null;
@@ -326,7 +326,7 @@ export class RunActivityPage implements OnInit {
     runTimer() {
         this.interval = setInterval(() => {
             if (this.timeLeft() > 0) {
-                this.timeLeft.set(this.timeLeft()- 0.01);
+                this.timeLeft.set(this.timeLeft() - 0.01);
             } else {
                 this.timeLeft.set(0.0);
                 this._callback();

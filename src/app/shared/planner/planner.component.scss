@@ -12,3 +12,9 @@
 ion-datetime {
   --background: var(--ion-card-background);
 }
+
+
+ion-datetime::part(wheel-item) {
+  font-size: 1.3rem;
+}
+

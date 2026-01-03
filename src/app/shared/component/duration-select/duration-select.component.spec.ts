@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DurationSelectComponent } from './duration-select.component';
-import { DebuggerModeService } from '../../../services/debugger.service';
-import { Activity } from '../../../services/activity.service';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {DurationSelectComponent} from './duration-select.component';
+import {DebuggerModeService} from '../../../services/debugger.service';
+import {Activity} from '../../../services/activity.service';
 
 describe('DurationSelectComponent', () => {
 
@@ -24,7 +24,7 @@ describe('DurationSelectComponent', () => {
         await TestBed.configureTestingModule({
             imports: [DurationSelectComponent],
             providers: [
-                { provide: DebuggerModeService, useValue: debugMock }
+                {provide: DebuggerModeService, useValue: debugMock}
             ]
         }).compileComponents();
 
@@ -49,7 +49,7 @@ describe('DurationSelectComponent', () => {
     });
 
     it('should notify if activity.config is undefined', () => {
-        component.activity = { id: 'a1', type: 'time' } as any;
+        component.activity = {id: 'a1', type: 'time'} as any;
 
         component.ngOnInit();
 
@@ -76,7 +76,7 @@ describe('DurationSelectComponent', () => {
         component.ngOnInit();
 
         component.onCustomChange(
-            { detail: { value: 3 } },  // minutes
+            {detail: {value: 3}},  // minutes
             true
         );
 
@@ -88,7 +88,7 @@ describe('DurationSelectComponent', () => {
         component.ngOnInit();
 
         component.onCustomChange(
-            { detail: { value: 42 } }, // seconds
+            {detail: {value: 42}}, // seconds
             false
         );
 

@@ -3,8 +3,42 @@ ion-content {
   --color: var(--ion-color-light);
 }
 
+
+.main-grid {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.main-row {
+  flex: 1;
+  display: flex;
+}
+
+@media (orientation: portrait) {
+  .main-row {
+    flex-direction: column;
+  }
+
+}
+
+@media (orientation: landscape) {
+  .main-row {
+    flex-direction: row;
+  }
+}
+
+.main-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  align-items: center;
+}
+
 .session-done {
-  margin-top: 20vh;
+  height: 100%;
 }
 
 @keyframes bounce {
@@ -24,91 +58,13 @@ ion-content {
   animation: bounce 1s infinite ease-in-out;
 }
 
-.complete-actions {
-  margin-top: 4rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  ion-button {
-    --background: var(--ion-color-light);
-    --color: var(--purple);
-    height: 75px;
-    --border-radius: 20px;
-    --box-shadow: none;
-  }
+
+ion-button.complete-actions {
+  --background: var(--ion-color-light);
+  --color: var(--purple);
+  height: 75px;
+  width: 100%;
+  --border-radius: 20px;
+  --box-shadow: none;
 }
 
-//
-///* Done state */
-//.session-done {
-//  text-align: center;
-//
-//  .done-container {
-//    display: flex;
-//    flex-direction: column;
-//    align-items: center;
-//    gap: 1.5rem;
-//    margin-top: 3rem;
-//  }
-//
-//  .activity-complete {
-//    display: flex;
-//    flex-direction: column;
-//    align-items: center;
-//    text-align: center;
-//    padding: 2rem 1rem;
-//    animation: fadeIn 0.8s ease-out;
-//
-//    .activity-description {
-//      color: gray;
-//      white-space: pre-wrap;
-//      overflow-y: auto;
-//      max-height: 8rem;
-//      padding-right: 4px;
-//      line-height: 1.4;
-//    }
-//  }
-//
-//
-//  .celebration-icon {
-//    font-size: 3rem;
-//    margin-bottom: 1rem;
-//    animation: pop 1s ease-out;
-//  }
-//
-//  .complete-title {
-//    font-size: 2rem;
-//    font-weight: 700;
-//    color: var(--ion-color-primary);
-//    margin-bottom: 0.5rem;
-//  }
-//
-//  .complete-subtitle {
-//    font-size: 1.1rem;
-//    margin-bottom: 0rem;
-//  }
-//
-//  .complete-actions {
-//    width: 100%;
-//    max-width: 400px;
-//  }
-//
-//  .progress-info {
-//    margin-top: 1rem;
-//    color: var(--ion-color-medium);
-//    font-size: 0.95rem;
-//  }
-//
-//}
-//ion-modal {
-//  --height: 50%;
-//  align-items: end;
-//}
-//
-//ion-picker {
-//  margin-bottom: var(--ion-safe-area-bottom);
-//}
-//
-//.picker-column-option-button {
-//  padding: 15px;
-//}

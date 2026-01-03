@@ -1,61 +1,60 @@
 <ion-content>
-  <div class="session-done ion-padding ion-text-center">
-    <div class="done-container">
-      <div class="activity-complete">
+    <div class="session-done ion-padding ion-text-center">
 
-        <ion-icon class="success-icon" name="checkmark-circle-outline"></ion-icon>
-        <h1> {{ "completed.congrats" | t }}</h1>
-        @if (session) {
-          @if (currentActivityId === session.activities.length - 1) {
-            <div class="ion-margin-top">
-              {{ "completed.sessionCompleted" | t }}
-            </div>
-          } @else {
-            <p class="complete-subtitle"><b>{{ "completed.nextActivity" | t }}</b>
-              : {{
-                session.activities[currentActivityId + 1].name || ("activityConfig.activityNamePlaceholder" | t)
-              }}</p>
-            <p class="activity-description">{{ session.activities[currentActivityId + 1].description || "" }}</p>
-          }
-        } @else {
-          <div class="ion-margin-top">
-            {{ "completed.activityCompleted" | t }}
-          </div>
-        }
+        <ion-grid class="main-grid">
+            <ion-row class="main-row">
+                <ion-col class="main-col">
+                    <ion-icon class="success-icon" name="checkmark-circle-outline"></ion-icon>
+                    <h1> {{ "completed.congrats" | t }}</h1>
+                    @if (session) {
+                        @if (currentActivityId === session.activities.length - 1) {
+                            <div class="ion-margin-top">
+                                {{ "completed.sessionCompleted" | t }}
+                            </div>
+                        } @else {
+                            <p class="complete-subtitle"><b>{{ "completed.nextActivity" | t }}</b>
+                                : {{
+                                    session.activities[currentActivityId + 1].name || ("activityConfig.activityNamePlaceholder" | t)
+                                }}</p>
+                            <p class="activity-description">{{ session.activities[currentActivityId + 1].description || "" }}</p>
+                        }
+                    } @else {
+                        <div class="ion-margin-top">
+                            {{ "completed.activityCompleted" | t }}
+                        </div>
+                    }
+                </ion-col>
+                <ion-col class="main-col">
+                    <ion-button expand="block" (click)="toHome()" class="complete-actions">
+                        <ion-icon slot="start" name="home-outline"></ion-icon>
+                        {{ "completed.goHome" | t }}
+                    </ion-button>
 
-        <div class="complete-actions">
+                    @if (!session) {
+                        <ion-button expand="block" (click)="repeatActivity()" class="complete-actions">
+                            <ion-icon slot="start" name="refresh-outline"></ion-icon>
+                            {{ "completed.repeat" | t }}
+                        </ion-button>
+                    } @else if (currentActivityId < session.activities.length - 1) {
+                        <ion-button expand="block" (click)="startNextActivity()" class="complete-actions">
+                            <ion-icon slot="start" name="arrow-forward-circle-outline"></ion-icon>
+                            {{ "completed.startNext" | t }}
+                        </ion-button>
 
-          <ion-button expand="block" (click)="toHome()">
-            <ion-icon slot="start" name="home-outline"></ion-icon>
-            {{ "completed.goHome" | t }}
-          </ion-button>
+                        <p class="progress-info">
+                            <b>{{ "completed.completedActivities" | t }} </b>: {{ currentActivityId + 1 }}
+                            / {{ session.activities.length }}
+                            activities
+                        </p>
 
-          @if (!session) {
-            <ion-button expand="block" (click)="repeatActivity()">
-              <ion-icon slot="start" name="refresh-outline"></ion-icon>
-              {{ "completed.repeat" | t }}
-            </ion-button>
-          } @else if (currentActivityId < session.activities.length - 1) {
-            <ion-button expand="block" (click)="startNextActivity()">
-              <ion-icon slot="start" name="arrow-forward-circle-outline"></ion-icon>
-              {{ "completed.startNext" | t }}
-            </ion-button>
-
-            <p class="progress-info">
-              <b>{{ "completed.completedActivities" | t }} </b>: {{ currentActivityId + 1 }}
-              / {{ session.activities.length }}
-              activities
-            </p>
-
-          } @else {
-            <ion-button expand="block" (click)="openPlannerModal()">
-              <ion-icon slot="start" name="calendar-outline"></ion-icon>
-              {{ "completed.scheduledSessions" | t }}
-            </ion-button>
-          }
-
-        </div>
-      </div>
+                    } @else {
+                        <ion-button expand="block" (click)="openPlannerModal()" class="complete-actions">
+                            <ion-icon slot="start" name="calendar-outline"></ion-icon>
+                            {{ "completed.scheduledSessions" | t }}
+                        </ion-button>
+                    }
+                </ion-col>
+            </ion-row>
+        </ion-grid>
     </div>
-  </div>
 </ion-content>
